@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OS Placement Portal | 250 Questions OA Prep</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-primary: #6366f1;
+      --accent-secondary: #3b82f6;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --easy-color: #34d399;
+      --medium-color: #fbbf24;
+      --hard-color: #f87171;
+      --radius: 12px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent-primary: #4f46e5;
+      --accent-secondary: #2563eb;
+      --accent-glow: rgba(79, 70, 229, 0.15);
+      --success: #059669;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --easy-color: #059669;
+      --medium-color: #d97706;
+      --hard-color: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mode-switch {
+      display: flex;
+      background: var(--bg-primary);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .mode-btn {
+      padding: 0.4rem 0.9rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mode-btn.active {
+      background: var(--accent-primary);
+      color: white;
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent-primary);
+    }
+
+    /* Main Container */
+    .app-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Sidebar Filters */
+    .sidebar {
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      padding: 1.25rem;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    select {
+      width: 100%;
+      padding: 0.6rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    select:focus {
+      border-color: var(--accent-primary);
+    }
+
+    .stats-card {
+      background: var(--bg-primary);
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Timer section for Exam mode */
+    .exam-timer-box {
+      display: none;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.1));
+      border: 1px solid var(--accent-primary);
+      border-radius: 8px;
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .exam-timer-box.active {
+      display: block;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    /* Main Content Area */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-secondary);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .results-count {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .results-count span {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Questions List */
+    .questions-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .question-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .question-card:hover {
+      border-color: var(--accent-glow);
+    }
+
+    .question-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-topic {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent-primary);
+    }
+
+    .badge-easy {
+      background: rgba(52, 211, 153, 0.15);
+      color: var(--easy-color);
+    }
+
+    .badge-medium {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--medium-color);
+    }
+
+    .badge-hard {
+      background: rgba(248, 113, 113, 0.15);
+      color: var(--hard-color);
+    }
+
+    .badge-company {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+    }
+
+    .question-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.3rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .icon-btn:hover {
+      color: var(--accent-primary);
+    }
+
+    .icon-btn.bookmarked {
+      color: #f59e0b;
+    }
+
+    .question-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .option-item {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: var(--transition);
+    }
+
+    .option-item:hover {
+      border-color: var(--accent-primary);
+    }
+
+    .option-prefix {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .option-item.selected {
+      border-color: var(--accent-primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .option-item.selected .option-prefix {
+      background: var(--accent-primary);
+      color: white;
+      border-color: var(--accent-primary);
+    }
+
+    .option-item.correct {
+      border-color: var(--success);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .option-item.correct .option-prefix {
+      background: var(--success);
+      color: white;
+      border-color: var(--success);
+    }
+
+    .option-item.incorrect {
+      border-color: var(--danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .option-item.incorrect .option-prefix {
+      background: var(--danger);
+      color: white;
+      border-color: var(--danger);
+    }
+
+    .explanation-box {
+      margin-top: 0.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 4px solid var(--accent-primary);
+      font-size: 0.88rem;
+      color: var(--text-main);
+      display: none;
+    }
+
+    .explanation-box.show {
+      display: block;
+    }
+
+    .explanation-title {
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .score-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      color: white;
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .score-circle .score-num {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-circle .score-pct {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-secondary);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .page-btn {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-main);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .page-btn.active {
+      background: var(--accent-primary);
+      color: white;
+      border-color: var(--accent-primary);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 900px) {
+      .app-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <span>OS Placement Portal</span>
+      </a>
+
+      <div class="header-controls">
+        <div class="mode-switch">
+          <button class="mode-btn active" id="btnPracticeMode" onclick="setMode('practice')">
+            <i class="fa-solid fa-book-open"></i> Practice
+          </button>
+          <button class="mode-btn" id="btnExamMode" onclick="setMode('exam')">
+            <i class="fa-solid fa-stopwatch"></i> Mock Exam
+          </button>
+        </div>
+
+        <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="app-layout">
+
+    <!-- Sidebar Filters -->
+    <aside class="sidebar">
+      <!-- Search -->
+      <div class="filter-group">
+        <label><i class="fa-solid fa-magnifying-glass"></i> Search</label>
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search keywords..." oninput="handleFilterChange()">
+        </div>
+      </div>
+
+      <!-- Topic Filter -->
+      <div class="filter-group">
+        <label><i class="fa-solid fa-layer-group"></i> Unit / Topic</label>
+        <select id="topicSelect" onchange="handleFilterChange()">
+          <option value="ALL">All 13 Units</option>
+          <option value="Introduction to OS">1. Introduction to OS</option>
+          <option value="Process Management">2. Process Management</option>
+          <option value="CPU Scheduling">3. CPU Scheduling</option>
+          <option value="Threads & Concurrency">4. Threads & Concurrency</option>
+          <option value="Process Synchronization">5. Process Synchronization</option>
+          <option value="Deadlocks">6. Deadlocks</option>
+          <option value="Memory Management">7. Memory Management</option>
+          <option value="Virtual Memory">8. Virtual Memory</option>
+          <option value="File Systems">9. File Systems</option>
+          <option value="Disk Scheduling & I/O">10. Disk Scheduling & I/O</option>
+          <option value="Security & Protection">11. Security & Protection</option>
+          <option value="Linux Concepts & System Calls">12. Linux Concepts</option>
+          <option value="Advanced OS Concepts">13. Advanced OS Concepts</option>
+        </select>
+      </div>
+
+      <!-- Difficulty Filter -->
+      <div class="filter-group">
+        <label><i class="fa-solid fa-gauge-high"></i> Difficulty</label>
+        <select id="difficultySelect" onchange="handleFilterChange()">
+          <option value="ALL">All Difficulties</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      <!-- Company Filter -->
+      <div class="filter-group">
+        <label><i class="fa-solid fa-building"></i> Target Company Pattern</label>
+        <select id="companySelect" onchange="handleFilterChange()">
+          <option value="ALL">All Target Companies</option>
+          <option value="TCS">TCS</option>
+          <option value="Infosys">Infosys</option>
+          <option value="Wipro">Wipro</option>
+          <option value="Amazon">Amazon</option>
+          <option value="Microsoft">Microsoft</option>
+          <option value="Google">Google</option>
+          <option value="Meta">Meta</option>
+          <option value="Nvidia">Nvidia</option>
+          <option value="Qualcomm">Qualcomm</option>
+          <option value="Intel">Intel</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Goldman Sachs">Goldman Sachs</option>
+          <option value="Oracle">Oracle</option>
+          <option value="Accenture">Accenture</option>
+        </select>
+      </div>
+
+      <!-- Saved / Bookmarked Filter -->
+      <div class="filter-group">
+        <label><i class="fa-solid fa-bookmark"></i> Bookmarks</label>
+        <select id="bookmarkSelect" onchange="handleFilterChange()">
+          <option value="ALL">All Questions</option>
+          <option value="BOOKMARKED">Bookmarked Only</option>
+        </select>
+      </div>
+
+      <!-- Live Stats Card -->
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-value" id="statAttempted">0</span>
+          <span class="stat-label">Attempted</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="statAccuracy">0%</span>
+          <span class="stat-label">Accuracy</span>
+        </div>
+      </div>
+
+      <!-- Timer Box for Exam Mode -->
+      <div class="exam-timer-box" id="examTimerBox">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Time Remaining</div>
+        <div class="timer-display" id="timerDisplay">45:00</div>
+        <button class="btn-primary" style="margin-top: 0.75rem; width: 100%; font-size: 0.85rem; padding: 0.5rem;" onclick="submitExam()">
+          Submit Assessment
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-header">
+        <div class="results-count">
+          Showing <span id="visibleCount">0</span> of <span id="totalBankCount">250</span> Questions
+        </div>
+        <button class="btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;" onclick="resetProgress()">
+          <i class="fa-solid fa-rotate-left"></i> Reset Progress
+        </button>
+      </div>
+
+      <!-- Questions List -->
+      <div class="questions-container" id="questionsList">
+        <!-- Dynamically Populated -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <!-- Dynamically Populated -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Score Modal -->
+  <div class="modal-overlay" id="scoreModal">
+    <div class="modal-card">
+      <h2 style="font-size: 1.4rem; font-weight: 700;">Assessment Completed!</h2>
+      <div class="score-circle">
+        <span class="score-num" id="modalScore">0/0</span>
+        <span class="score-pct" id="modalPct">0%</span>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;" id="modalMessage">
+        Great effort! Review your answers below to strengthen core operating system concepts.
+      </p>
+      <button class="btn-primary" onclick="closeModal()">
+        Review Detailed Answers
+      </button>
+    </div>
+  </div>
+
+  <!-- Script Logic -->
+  <script>
+    let questionBank = [];
+    let currentMode = 'practice'; // 'practice' or 'exam'
+    let currentPage = 1;
+    const questionsPerPage = 10;
+    
+    let userAnswers = {}; // questionId -> selectedOptionIndex
+    let bookmarkedIds = new Set(JSON.parse(localStorage.getItem('os_bookmarks') || '[]'));
+    
+    let timerInterval = null;
+    let timerSeconds = 45 * 60; // 45 minutes
+
+    // Fetch master questions database
+    async function loadQuestionBank() {
+      try {
+        const response = await fetch('questionBank.json');
+        questionBank = await response.json();
+      } catch (err) {
+        console.warn('Fetch failed, using local storage or fallback', err);
+      }
+      document.getElementById('totalBankCount').textContent = questionBank.length;
+      renderQuestions();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', target);
+      const icon = document.querySelector('#themeToggleBtn i');
+      icon.className = target === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnPracticeMode').classList.toggle('active', mode === 'practice');
+      document.getElementById('btnExamMode').classList.toggle('active', mode === 'exam');
+      document.getElementById('examTimerBox').classList.toggle('active', mode === 'exam');
+      
+      if (mode === 'exam' && !timerInterval) {
+        startTimer();
+      } else if (mode === 'practice' && timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      renderQuestions();
+    }
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        if (timerSeconds <= 0) {
+          clearInterval(timerInterval);
+          submitExam();
+          return;
+        }
+        timerSeconds--;
+        const mins = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+        const secs = (timerSeconds % 60).toString().padStart(2, '0');
+        document.getElementById('timerDisplay').textContent = `${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function submitExam() {
+      if (timerInterval) clearInterval(timerInterval);
+      
+      let correctCount = 0;
+      let totalAttempted = Object.keys(userAnswers).length;
+
+      questionBank.forEach(q => {
+        if (userAnswers[q.id] === q.answer) {
+          correctCount++;
+        }
+      });
+
+      const pct = questionBank.length > 0 ? Math.round((correctCount / questionBank.length) * 100) : 0;
+      document.getElementById('modalScore').textContent = `${correctCount}/${questionBank.length}`;
+      document.getElementById('modalPct').textContent = `${pct}% Accuracy`;
+      document.getElementById('scoreModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('scoreModal').classList.remove('active');
+    }
+
+    function toggleBookmark(id) {
+      if (bookmarkedIds.has(id)) {
+        bookmarkedIds.delete(id);
+      } else {
+        bookmarkedIds.add(id);
+      }
+      localStorage.setItem('os_bookmarks', JSON.stringify(Array.from(bookmarkedIds)));
+      renderQuestions();
+    }
+
+    function handleFilterChange() {
+      currentPage = 1;
+      renderQuestions();
+    }
+
+    function getFilteredQuestions() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const topic = document.getElementById('topicSelect').value;
+      const difficulty = document.getElementById('difficultySelect').value;
+      const company = document.getElementById('companySelect').value;
+      const bookmarkFilter = document.getElementById('bookmarkSelect').value;
+
+      return questionBank.filter(q => {
+        const matchesSearch = !search || q.question.toLowerCase().includes(search) || q.explanation.toLowerCase().includes(search);
+        const matchesTopic = topic === 'ALL' || q.topic === topic;
+        const matchesDifficulty = difficulty === 'ALL' || q.difficulty === difficulty;
+        const matchesCompany = company === 'ALL' || q.companyPattern.includes(company);
+        const matchesBookmark = bookmarkFilter === 'ALL' || bookmarkedIds.has(q.id);
+
+        return matchesSearch && matchesTopic && matchesDifficulty && matchesCompany && matchesBookmark;
+      });
+    }
+
+    function selectOption(questionId, optionIndex) {
+      userAnswers[questionId] = optionIndex;
+      updateStats();
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const attempted = Object.keys(userAnswers).length;
+      let correct = 0;
+      
+      Object.keys(userAnswers).forEach(qId => {
+        const q = questionBank.find(item => item.id == qId);
+        if (q && userAnswers[qId] === q.answer) {
+          correct++;
+        }
+      });
+
+      const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+      document.getElementById('statAttempted').textContent = attempted;
+      document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+    }
+
+    function resetProgress() {
+      userAnswers = {};
+      updateStats();
+      renderQuestions();
+    }
+
+    function renderQuestions() {
+      const filtered = getFilteredQuestions();
+      document.getElementById('visibleCount').textContent = filtered.length;
+
+      const totalPages = Math.ceil(filtered.length / questionsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIdx = (currentPage - 1) * questionsPerPage;
+      const paginated = filtered.slice(startIdx, startIdx + questionsPerPage);
+
+      const container = document.getElementById('questionsList');
+      container.innerHTML = '';
+
+      if (paginated.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 3rem; background: var(--bg-secondary); border-radius: var(--radius); border: 1px solid var(--border-color);">
+            <i class="fa-solid fa-folder-open" style="font-size: 2.5rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+            <p style="font-size: 1.1rem; font-weight: 600;">No questions match your current filters</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Try adjusting your search keywords or topic drop-down filter.</p>
+          </div>
+        `;
+        renderPagination(0);
+        return;
+      }
+
+      paginated.forEach((q, idx) => {
+        const globalIndex = startIdx + idx + 1;
+        const isBookmarked = bookmarkedIds.has(q.id);
+        const selectedOpt = userAnswers[q.id];
+
+        const card = document.createElement('div');
+        card.className = 'question-card';
+
+        const prefixes = ['A', 'B', 'C', 'D'];
+        let optionsHTML = '';
+
+        q.options.forEach((optText, optIdx) => {
+          let itemClass = 'option-item';
+          
+          if (selectedOpt !== undefined) {
+            if (currentMode === 'practice') {
+              if (optIdx === q.answer) {
+                itemClass += ' correct';
+              } else if (selectedOpt === optIdx) {
+                itemClass += ' incorrect';
+              }
+            } else {
+              // Exam mode: just mark selected
+              if (selectedOpt === optIdx) {
+                itemClass += ' selected';
+              }
+            }
+          }
+
+          optionsHTML += `
+            <div class="${itemClass}" onclick="selectOption(${q.id}, ${optIdx})">
+              <div class="option-prefix">${prefixes[optIdx]}</div>
+              <div>${optText}</div>
+            </div>
+          `;
+        });
+
+        const showExplanation = currentMode === 'practice' && selectedOpt !== undefined;
+
+        card.innerHTML = `
+          <div class="question-meta">
+            <div class="tags">
+              <span class="badge badge-topic">Q${q.id}. ${q.topic}</span>
+              <span class="badge badge-${q.difficulty.toLowerCase()}">${q.difficulty}</span>
+              ${q.companyPattern.slice(0, 3).map(c => `<span class="badge badge-company">${c}</span>`).join('')}
+            </div>
+            <div class="question-actions">
+              <button class="icon-btn ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmark(${q.id})" title="Bookmark Question">
+                <i class="fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="question-title">${q.question}</div>
+
+          <div class="options-grid">
+            ${optionsHTML}
+          </div>
+
+          <div class="explanation-box ${showExplanation ? 'show' : ''}">
+            <div class="explanation-title">
+              <i class="fa-solid fa-circle-info"></i> Detailed Explanation & Technical Rationale
+            </div>
+            <div>${q.explanation}</div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      const pContainer = document.getElementById('pagination');
+      pContainer.innerHTML = '';
+
+      if (totalPages <= 1) return;
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => { currentPage--; renderQuestions(); };
+      pContainer.appendChild(prevBtn);
+
+      for (let i = 1; i <= Math.min(totalPages, 10); i++) {
+        const btn = document.createElement('button');
+        btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+        btn.textContent = i;
+        btn.onclick = () => { currentPage = i; renderQuestions(); };
+        pContainer.appendChild(btn);
+      }
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => { currentPage++; renderQuestions(); };
+      pContainer.appendChild(nextBtn);
+    }
+
+    // Initialize application on load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadQuestionBank();
+    });
+  </script>
+</body>
+</html>

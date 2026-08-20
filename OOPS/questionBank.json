@@ -1,0 +1,4816 @@
+[
+  {
+    "id": 1,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Access Specifiers",
+    "companyPattern": [
+      "TCS",
+      "Infosys",
+      "Accenture"
+    ],
+    "question": "Which access specifier in C++ allows class members to be accessible only within the class itself and to friend classes/functions?",
+    "options": [
+      "public",
+      "protected",
+      "private",
+      "internal"
+    ],
+    "answer": 2,
+    "explanation": "The 'private' access specifier restricts access to members strictly within the declaring class and designated friend functions/classes. 'public' allows universal access, 'protected' allows access in derived classes, and 'internal' is not a valid C++ access specifier."
+  },
+  {
+    "id": 2,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Constructors & Destructors",
+    "companyPattern": [
+      "Cognizant",
+      "Wipro",
+      "Capgemini"
+    ],
+    "question": "What is the return type of a C++ constructor?",
+    "options": [
+      "void",
+      "int",
+      "Pointer to the class",
+      "Constructors do not have a return type"
+    ],
+    "answer": 3,
+    "explanation": "Constructors in C++ do not have any return type, not even void. They are automatically invoked upon object instantiation to initialize memory and instance data members."
+  },
+  {
+    "id": 3,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Constructors & Destructors",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft",
+      "Oracle"
+    ],
+    "question": "What happens when a C++ class object goes out of scope?",
+    "options": [
+      "Its constructor is called",
+      "Its destructor is called automatically",
+      "Memory is leaked unless free() is called",
+      "The garbage collector reclaims it"
+    ],
+    "answer": 1,
+    "explanation": "In C++, stack-allocated objects follow RAII; when an object goes out of scope, its destructor is automatically called to perform cleanup. C++ does not have automatic garbage collection."
+  },
+  {
+    "id": 4,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Copy Constructor",
+    "companyPattern": [
+      "Nvidia",
+      "Qualcomm",
+      "Intel"
+    ],
+    "question": "Why must the parameter of a copy constructor in C++ be passed by reference (e.g., ClassName(const ClassName &obj))?",
+    "options": [
+      "To allow modification of the source object",
+      "To prevent infinite recursion during pass-by-value initialization",
+      "Because pointers cannot be passed to constructors",
+      "To improve inline expansion by the compiler"
+    ],
+    "answer": 1,
+    "explanation": "If passed by value, passing the argument to the copy constructor would itself require creating a copy of the argument, invoking the copy constructor again endlessly in an infinite recursion."
+  },
+  {
+    "id": 5,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Shallow vs Deep Copy",
+    "companyPattern": [
+      "Adobe",
+      "Goldman Sachs",
+      "SAP"
+    ],
+    "question": "Consider a C++ class allocating heap memory in its constructor. What occurs if a default copy constructor is used when copying an object?",
+    "options": [
+      "A deep copy is performed automatically",
+      "A shallow copy is performed, causing pointer aliasing and potential double free errors",
+      "A compilation error occurs because heap memory requires virtual constructors",
+      "Memory is allocated in the stack for the copied object"
+    ],
+    "answer": 1,
+    "explanation": "The default copy constructor performs a memberwise shallow copy. If a class holds raw pointers to heap memory, both objects end up pointing to the exact same memory location, triggering double-free crashes upon destruction."
+  },
+  {
+    "id": 6,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Move Semantics",
+    "companyPattern": [
+      "Google",
+      "Meta",
+      "Nvidia"
+    ],
+    "question": "In C++11, what is the primary parameter signature of a Move Constructor for class Buffer?",
+    "options": [
+      "Buffer(Buffer obj)",
+      "Buffer(const Buffer& obj)",
+      "Buffer(Buffer&& obj) noexcept",
+      "Buffer(Buffer* obj)"
+    ],
+    "answer": 2,
+    "explanation": "A move constructor accepts an rvalue reference Buffer&&. It transfers ownership of resources from a temporary object without reallocating memory, avoiding expensive deep copies."
+  },
+  {
+    "id": 7,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Static Members",
+    "companyPattern": [
+      "TCS",
+      "HCL",
+      "Tech Mahindra"
+    ],
+    "question": "How is a static data member of a C++ class shared among instantiated objects?",
+    "options": [
+      "Each object gets its own copy of the static member",
+      "A single instance of the static member exists for the entire class, shared by all objects",
+      "Static members can only be accessed inside static member functions and cannot store state",
+      "Static members are recreated on every function call"
+    ],
+    "answer": 1,
+    "explanation": "Static data members belong to the class itself rather than any specific object instance. Only one copy exists in memory throughout the program execution, shared across all instances."
+  },
+  {
+    "id": 8,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Static Methods",
+    "companyPattern": [
+      "Infosys",
+      "Deloitte",
+      "LTIMindtree"
+    ],
+    "question": "Which statement regarding static member functions in C++ is TRUE?",
+    "options": [
+      "They have an implicit this pointer",
+      "They can access non-static class members directly",
+      "They can be called using the class name without creating an object",
+      "They can be declared as virtual"
+    ],
+    "answer": 2,
+    "explanation": "Static member functions do not possess a this pointer and can be invoked using the class scope operator ClassName::function(). Consequently, they cannot access non-static members or be virtual."
+  },
+  {
+    "id": 9,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "This Pointer",
+    "companyPattern": [
+      "Qualcomm",
+      "Samsung",
+      "Cisco"
+    ],
+    "question": "What is the type of the this pointer inside a const member function of class Widget?",
+    "options": [
+      "Widget*",
+      "const Widget*",
+      "const Widget* const",
+      "Widget* const"
+    ],
+    "answer": 2,
+    "explanation": "Inside a const member function, this is a constant pointer to a constant object (const Widget* const). This prevents modifying data members through this and prevents changing the pointer itself."
+  },
+  {
+    "id": 10,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Friend Functions",
+    "companyPattern": [
+      "Accenture",
+      "Cognizant",
+      "IBM"
+    ],
+    "question": "Which keyword is used in C++ to allow a non-member function to access private and protected members of a class?",
+    "options": [
+      "public",
+      "friend",
+      "extern",
+      "protected"
+    ],
+    "answer": 1,
+    "explanation": "The friend keyword grants a specific function or external class access to the private and protected encapsulation layers of the declaring class."
+  },
+  {
+    "id": 11,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Friend Class",
+    "companyPattern": [
+      "Oracle",
+      "JPMorgan",
+      "ServiceNow"
+    ],
+    "question": "If Class A is declared as a friend of Class B, and Class B is declared as a friend of Class C, which of the following is true in C++?",
+    "options": [
+      "Class A is automatically a friend of Class C (transitive)",
+      "Class C is automatically a friend of Class A (symmetric)",
+      "Friendship is neither transitive nor symmetric",
+      "Class C can access private members of Class A"
+    ],
+    "answer": 2,
+    "explanation": "Friendship in C++ is neither inherited, transitive, nor symmetric. A being a friend of B and B being a friend of C does not make A a friend of C unless explicitly specified."
+  },
+  {
+    "id": 12,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Inline Functions",
+    "companyPattern": [
+      "Wipro",
+      "TCS",
+      "Capgemini"
+    ],
+    "question": "What is the purpose of the inline keyword in C++ when applied to class methods?",
+    "options": [
+      "To prevent method overriding",
+      "To request the compiler to replace function calls with the actual function code to reduce invocation overhead",
+      "To make the method run in a separate thread",
+      "To dynamic bind the method at runtime"
+    ],
+    "answer": 1,
+    "explanation": "The inline hint requests the compiler to expand the function body inline at each call site, eliminating call overhead like stack frame push/pop for small, frequently called functions."
+  },
+  {
+    "id": 13,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Explicit Keyword",
+    "companyPattern": [
+      "Amazon",
+      "Goldman Sachs",
+      "VMware"
+    ],
+    "question": "What does the explicit specifier do when applied to a single-argument constructor in C++?",
+    "options": [
+      "Forces the constructor to be executed in thread-safe mode",
+      "Prevents implicit conversion operations during assignment or parameter passing",
+      "Makes the constructor private",
+      "Allows the constructor to be called without arguments"
+    ],
+    "answer": 1,
+    "explanation": "explicit prevents the compiler from performing implicit type conversions using constructors (e.g. Widget w = 10; is blocked if explicit Widget(int) is declared)."
+  },
+  {
+    "id": 14,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Mutable Keyword",
+    "companyPattern": [
+      "Nvidia",
+      "Adobe",
+      "Microsoft"
+    ],
+    "question": "What is the function of the mutable specifier on a C++ class data member?",
+    "options": [
+      "It allows the member to be modified even inside const member functions",
+      "It makes the member thread-safe",
+      "It allows the variable to change data types dynamically",
+      "It automatically allocates the variable on the heap"
+    ],
+    "answer": 0,
+    "explanation": "The mutable keyword allows a class member variable to be mutated even within const member functions, useful for internal caching, mutexes, or call counters that do not alter the logical state of the object."
+  },
+  {
+    "id": 15,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Destructors",
+    "companyPattern": [
+      "Tech Mahindra",
+      "Infosys",
+      "Deloitte"
+    ],
+    "question": "Can a C++ destructor take arguments or return a value?",
+    "options": [
+      "Yes, it can take arguments but cannot return a value",
+      "Yes, it can return int status codes",
+      "No, destructors cannot take arguments or have return types",
+      "Destructors can be overloaded with different parameter lists"
+    ],
+    "answer": 2,
+    "explanation": "In C++, a destructor never takes parameters and never returns a value. Because it takes no arguments, a class can have at most one destructor (destructors cannot be overloaded)."
+  },
+  {
+    "id": 16,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Diamond Problem",
+    "companyPattern": [
+      "Amazon",
+      "Oracle",
+      "Cisco"
+    ],
+    "question": "How is the Diamond Problem (duplicate base class subobjects in multiple inheritance) resolved in C++?",
+    "options": [
+      "By using private inheritance",
+      "By making base class constructors static",
+      "By using virtual inheritance (class B : virtual public A)",
+      "By using namespaces"
+    ],
+    "answer": 2,
+    "explanation": "Virtual inheritance ensures that only one shared instance of the base class subobject exists in the derived class memory layout, resolving ambiguity and duplicate subobjects in diamond inheritance hierarchies."
+  },
+  {
+    "id": 17,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Virtual Destructors",
+    "companyPattern": [
+      "Qualcomm",
+      "Nvidia",
+      "Microsoft"
+    ],
+    "question": "What risk is incurred if a base class destructor is NOT declared as virtual when deleting a derived class object via a base class pointer (Base* p = new Derived(); delete p;)?",
+    "options": [
+      "Compilation error occurs immediately",
+      "Undefined behavior: only the base destructor runs, causing memory leaks/resource leaks of derived class members",
+      "The derived constructor executes twice",
+      "The program crashes during instantiation"
+    ],
+    "answer": 1,
+    "explanation": "Deleting a derived object through a non-virtual base pointer yields undefined behavior. Typically, the derived class destructor is not called, leading to memory leaks and unreleased resources held by the derived object."
+  },
+  {
+    "id": 18,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Virtual Functions",
+    "companyPattern": [
+      "Google",
+      "Adobe",
+      "Atlassian"
+    ],
+    "question": "How does C++ achieve runtime polymorphism for virtual functions under the hood?",
+    "options": [
+      "Using RTTI and reflection tables",
+      "Using vTable (Virtual Table) and vPtr (Virtual Pointer) per object",
+      "By converting member functions into static C functions at compile time",
+      "Using macros"
+    ],
+    "answer": 1,
+    "explanation": "C++ compilers construct a virtual table (vTable) containing function pointers for each class with virtual functions. Each object instance of such a class contains a hidden virtual pointer (vPtr) referencing its class vTable."
+  },
+  {
+    "id": 19,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Pure Virtual Function",
+    "companyPattern": [
+      "TCS",
+      "Wipro",
+      "Cognizant"
+    ],
+    "question": "How is a Pure Virtual Function declared in C++?",
+    "options": [
+      "virtual void show() = 0;",
+      "abstract void show();",
+      "virtual void show() = abstract;",
+      "pure virtual void show();"
+    ],
+    "answer": 0,
+    "explanation": "A pure virtual function is declared by assigning = 0 to a virtual function declaration in the class definition. Any class containing at least one pure virtual function becomes an abstract class."
+  },
+  {
+    "id": 20,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Abstract Classes",
+    "companyPattern": [
+      "Infosys",
+      "Accenture",
+      "IBM"
+    ],
+    "question": "Can you instantiate an object of an Abstract Class in C++?",
+    "options": [
+      "Yes, if all data members are initialized",
+      "No, abstract classes cannot be instantiated directly",
+      "Yes, using the new keyword only",
+      "Yes, but only inside friend functions"
+    ],
+    "answer": 1,
+    "explanation": "Abstract classes contain incomplete interface contracts (pure virtual functions) and cannot be directly instantiated. You can only instantiate concrete derived classes that implement all pure virtual functions."
+  },
+  {
+    "id": 21,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Object Slicing",
+    "companyPattern": [
+      "Goldman Sachs",
+      "JPMorgan",
+      "Morgan Stanley"
+    ],
+    "question": "What is Object Slicing in C++?",
+    "options": [
+      "Dividing a class object across multiple threads",
+      "When a derived class object is assigned to a base class object by value, stripping away derived-specific data members",
+      "Deleting half of an object from memory",
+      "Casting a base class pointer to derived class pointer"
+    ],
+    "answer": 1,
+    "explanation": "Object slicing occurs when a derived class instance is assigned to a base class instance by value (e.g. Base b = derivedObj;). The base assignment copy strips away all derived attributes, keeping only base members."
+  },
+  {
+    "id": 22,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Operator Overloading",
+    "companyPattern": [
+      "Samsung",
+      "PayPal",
+      "Walmart Global Tech"
+    ],
+    "question": "Which of the following operators CANNOT be overloaded in C++?",
+    "options": [
+      "+",
+      "==",
+      ":: (Scope Resolution Operator)",
+      "[]"
+    ],
+    "answer": 2,
+    "explanation": "In C++, the Scope Resolution Operator ::, Member Access Operator ., Pointer-to-member Operator .*, Conditional Operator ?:, and sizeof operator CANNOT be overloaded."
+  },
+  {
+    "id": 23,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Operator Overloading",
+    "companyPattern": [
+      "ServiceNow",
+      "Flipkart",
+      "Oracle"
+    ],
+    "question": "When overloading the prefix increment operator (++obj) vs postfix increment operator (obj++) in C++, how does the compiler differentiate their declarations?",
+    "options": [
+      "Prefix takes a dummy int parameter; Postfix takes no parameters",
+      "Postfix takes a dummy int parameter (operator++(int)); Prefix takes no parameters",
+      "Prefix returns void; Postfix returns int",
+      "Postfix uses the keyword post"
+    ],
+    "answer": 1,
+    "explanation": "The C++ standard distinguishes postfix increment from prefix increment by giving postfix a dummy integer parameter in signature: Type operator++() for prefix, and Type operator++(int) for postfix."
+  },
+  {
+    "id": 24,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Inheritance Types",
+    "companyPattern": [
+      "Capgemini",
+      "HCL",
+      "Tech Mahindra"
+    ],
+    "question": "In C++, if class B inherits privately from class A (class B : private A), what happens to public members of A inside B?",
+    "options": [
+      "They become public members of B",
+      "They become protected members of B",
+      "They become private members of B",
+      "They are removed from B"
+    ],
+    "answer": 2,
+    "explanation": "In private inheritance (private A), public and protected members of the base class A become private members within the derived class B and cannot be accessed outside B."
+  },
+  {
+    "id": 25,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Function Overriding vs Overloading",
+    "companyPattern": [
+      "Deloitte",
+      "LTIMindtree",
+      "Cognizant"
+    ],
+    "question": "What condition is required for Function Overriding to take place in C++?",
+    "options": [
+      "Functions must have different parameter types in the same class",
+      "Function in derived class must have exact same name, return type, and signature as a virtual function in base class",
+      "Functions must be declared static",
+      "Functions must be declared inside namespaces"
+    ],
+    "answer": 1,
+    "explanation": "Function overriding requires inheritance, identical signature (name, parameter types, qualifiers), identical/covariant return type, and the base function must be virtual."
+  },
+  {
+    "id": 26,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Output Prediction",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft",
+      "Directi"
+    ],
+    "question": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n    void show() { cout << \"Base \"; }\n};\nclass Derived : public Base {\npublic:\n    void show() { cout << \"Derived \"; }\n};\nint main() {\n    Base* ptr = new Derived();\n    ptr->show();\n    delete ptr;\n    return 0;\n}",
+    "options": [
+      "Base",
+      "Derived",
+      "Compilation Error",
+      "Runtime Error"
+    ],
+    "answer": 0,
+    "explanation": "Because show() in Base is NOT declared virtual, early binding (compile-time binding) occurs based on the pointer type (Base*). Thus, Base::show() is called, printing 'Base'."
+  },
+  {
+    "id": 27,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Output Prediction",
+    "companyPattern": [
+      "TCS",
+      "Infosys",
+      "Accenture"
+    ],
+    "question": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n    virtual void show() { cout << \"Base \"; }\n};\nclass Derived : public Base {\npublic:\n    void show() override { cout << \"Derived \"; }\n};\nint main() {\n    Base* ptr = new Derived();\n    ptr->show();\n    delete ptr;\n    return 0;\n}",
+    "options": [
+      "Base",
+      "Derived",
+      "Derived Base",
+      "Compilation Error"
+    ],
+    "answer": 1,
+    "explanation": "Since show() is marked virtual in Base, dynamic binding occurs at runtime based on the actual object type (Derived). Hence Derived::show() executes, printing 'Derived'."
+  },
+  {
+    "id": 28,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Output Prediction",
+    "companyPattern": [
+      "Qualcomm",
+      "Nvidia",
+      "Google"
+    ],
+    "question": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n    Base() { show(); }\n    virtual void show() { cout << \"BaseConstruct \"; }\n};\nclass Derived : public Base {\npublic:\n    Derived() { show(); }\n    void show() override { cout << \"DerivedConstruct \"; }\n};\nint main() {\n    Derived d;\n    return 0;\n}",
+    "options": [
+      "DerivedConstruct DerivedConstruct",
+      "BaseConstruct DerivedConstruct",
+      "DerivedConstruct BaseConstruct",
+      "BaseConstruct BaseConstruct"
+    ],
+    "answer": 1,
+    "explanation": "During base class construction, the object is not yet a Derived instance. Calling a virtual function inside a base constructor executes the base class implementation (BaseConstruct). Then Derived constructor runs, calling Derived::show() (DerivedConstruct)."
+  },
+  {
+    "id": 29,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Output Prediction",
+    "companyPattern": [
+      "Adobe",
+      "Goldman Sachs",
+      "Amazon"
+    ],
+    "question": "What is the output of the following C++ snippet?\n#include <iostream>\nusing namespace std;\nclass Test {\n    static int count;\npublic:\n    Test() { count++; }\n    static int getCount() { return count; }\n};\nint Test::count = 5;\nint main() {\n    Test t1, t2;\n    cout << Test::getCount();\n    return 0;\n}",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "Compilation Error"
+    ],
+    "answer": 2,
+    "explanation": "count is initialized to 5. Instantiating t1 increments count to 6, and t2 increments count to 7. getCount() returns 7."
+  },
+  {
+    "id": 30,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Output Prediction",
+    "companyPattern": [
+      "Capgemini",
+      "Cognizant",
+      "Wipro"
+    ],
+    "question": "What is the output of this code?\n#include <iostream>\nusing namespace std;\nclass A {\npublic:\n    A() { cout << \"A\"; }\n    ~A() { cout << \"~A\"; }\n};\nclass B : public A {\npublic:\n    B() { cout << \"B\"; }\n    ~B() { cout << \"~B\"; }\n};\nint main() {\n    B obj;\n    return 0;\n}",
+    "options": [
+      "AB~B~A",
+      "BA~A~B",
+      "AB~A~B",
+      "BA~B~A"
+    ],
+    "answer": 0,
+    "explanation": "Constructors are executed in top-down order (Base first, then Derived -> 'AB'). Destructors execute in reverse bottom-up order (Derived first, then Base -> '~B~A'). Total output: 'AB~B~A'."
+  },
+  {
+    "id": 31,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Virtual Destructor Trap",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft",
+      "ServiceNow"
+    ],
+    "question": "What is printed by the following program?\n#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n    ~Base() { cout << \"~Base \"; }\n};\nclass Derived : public Base {\npublic:\n    ~Derived() { cout << \"~Derived \"; }\n};\nint main() {\n    Base* ptr = new Derived();\n    delete ptr;\n    return 0;\n}",
+    "options": [
+      "~Derived ~Base",
+      "~Base",
+      "~Derived",
+      "Compilation Error"
+    ],
+    "answer": 1,
+    "explanation": "Because Base::~Base() is NOT virtual, executing delete ptr (where ptr is Base*) only invokes ~Base(), skipping ~Derived(). Output is '~Base '."
+  },
+  {
+    "id": 32,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Templates",
+    "companyPattern": [
+      "Oracle",
+      "Cisco",
+      "Tech Mahindra"
+    ],
+    "question": "What is the purpose of class templates in C++?",
+    "options": [
+      "To generate dynamic runtime objects",
+      "To allow a class to operate on generic data types without rewriting code for each type",
+      "To automatically implement design patterns",
+      "To force private inheritance"
+    ],
+    "answer": 1,
+    "explanation": "Templates support generic programming by enabling classes and functions to operate with generic data types specified at compile time."
+  },
+  {
+    "id": 33,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Smart Pointers",
+    "companyPattern": [
+      "Nvidia",
+      "Qualcomm",
+      "Intel"
+    ],
+    "question": "Which Smart Pointer in C++11 represents exclusive ownership of a dynamically allocated resource and CANNOT be copied?",
+    "options": [
+      "std::shared_ptr",
+      "std::weak_ptr",
+      "std::unique_ptr",
+      "std::auto_ptr"
+    ],
+    "answer": 2,
+    "explanation": "std::unique_ptr manages resources with unique (exclusive) ownership semantics. Copying is disabled (copy constructor deleted), but it can be moved using std::move."
+  },
+  {
+    "id": 34,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Smart Pointers",
+    "companyPattern": [
+      "Google",
+      "Meta",
+      "Adobe"
+    ],
+    "question": "What problem does std::weak_ptr solve in C++ smart pointer management?",
+    "options": [
+      "It reduces memory fragmentation",
+      "It breaks circular references (cyclic dependencies) caused by std::shared_ptr",
+      "It speeds up smart pointer dereferencing",
+      "It allows copying unique_ptr"
+    ],
+    "answer": 1,
+    "explanation": "When two objects hold std::shared_ptr references to each other, their reference counts never drop to zero, creating a memory leak. std::weak_ptr provides a non-owning reference that prevents cyclic reference leaks."
+  },
+  {
+    "id": 35,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "RAII Concept",
+    "companyPattern": [
+      "Infosys",
+      "TCS",
+      "Accenture"
+    ],
+    "question": "What does RAII stand for in C++ programming?",
+    "options": [
+      "Resource Allocation Is Immediate",
+      "Resource Acquisition Is Initialization",
+      "Runtime Access In Inheritance",
+      "Reference Alignment In Interfaces"
+    ],
+    "answer": 1,
+    "explanation": "RAII stands for 'Resource Acquisition Is Initialization'. It ties resource management (file handles, memory, sockets) to object lifetime, releasing resources in destructors automatically."
+  },
+  {
+    "id": 36,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Default Arguments in Methods",
+    "companyPattern": [
+      "IBM",
+      "Deloitte"
+    ],
+    "question": "In C++, if a function has default arguments, where must they be specified in the parameter list?",
+    "options": [
+      "At the beginning of the list",
+      "At the end of the parameter list",
+      "Anywhere in the list",
+      "Only for integer arguments"
+    ],
+    "answer": 1,
+    "explanation": "Default arguments must be specified from right to left (at the end of the parameter list). You cannot have a non-default parameter after a default parameter."
+  },
+  {
+    "id": 37,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Copy Elision / RVO",
+    "companyPattern": [
+      "Microsoft",
+      "Amazon"
+    ],
+    "question": "What is Return Value Optimization (RVO) / Copy Elision in C++?",
+    "options": [
+      "A compiler technique that optimizes loop bounds",
+      "A compiler optimization that eliminates unnecessary copying of temporary objects returned by functions",
+      "A method to compress class data members",
+      "A garbage collection pass"
+    ],
+    "answer": 1,
+    "explanation": "Copy elision/RVO allows the compiler to construct the return object directly in the memory allocated for the caller's target variable, bypassing copy/move constructors."
+  },
+  {
+    "id": 38,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Const Member Functions",
+    "companyPattern": [
+      "TCS",
+      "Wipro"
+    ],
+    "question": "Can a const member function invoke a non-const member function of the same class in C++?",
+    "options": [
+      "Yes, always",
+      "No, it causes a compilation error",
+      "Yes, if the function is inline",
+      "Yes, if casted explicitly"
+    ],
+    "answer": 1,
+    "explanation": "A const member function guarantees not to modify the object state. Invoking a non-const member function could break this guarantee, so the compiler prohibits it."
+  },
+  {
+    "id": 39,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Virtual Base Class",
+    "companyPattern": [
+      "Cognizant",
+      "HCL"
+    ],
+    "question": "What is the key syntax to declare virtual base inheritance in C++?",
+    "options": [
+      "class Derived : virtual public Base",
+      "class Derived : public Base virtual",
+      "class Derived : abstract Base",
+      "class Derived : Base(virtual)"
+    ],
+    "answer": 0,
+    "explanation": "The virtual keyword is placed before or after access specifiers during class derivation: class Derived : virtual public Base."
+  },
+  {
+    "id": 40,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Pure Virtual Destructor",
+    "companyPattern": [
+      "Adobe",
+      "Qualcomm"
+    ],
+    "question": "Is it legal in C++ to declare a Pure Virtual Destructor, and if so, what is required?",
+    "options": [
+      "Illegal; destructors cannot be pure virtual",
+      "Legal; but a body for the pure virtual destructor must still be provided outside the class",
+      "Legal; and no body can be provided under any circumstance",
+      "Legal; but the class becomes non-inheritable"
+    ],
+    "answer": 1,
+    "explanation": "A pure virtual destructor is legal (virtual ~Base() = 0;), but derived destructors implicitly call the base destructor, so a base destructor body MUST be defined outside the class declaration."
+  },
+  {
+    "id": 41,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Namespaces",
+    "companyPattern": [
+      "Infosys",
+      "Capgemini"
+    ],
+    "question": "What problem do namespaces solve in C++?",
+    "options": [
+      "Memory overflow errors",
+      "Name collisions/naming conflicts between libraries or code modules",
+      "Pointer aliasing",
+      "Slow compilation speeds"
+    ],
+    "answer": 1,
+    "explanation": "Namespaces prevent naming conflicts by grouping entities like classes, functions, and variables into distinct named scopes."
+  },
+  {
+    "id": 42,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Static Cast vs Dynamic Cast",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Nvidia"
+    ],
+    "question": "Which C++ cast operator performs runtime type checking using RTTI when casting pointers down an inheritance hierarchy?",
+    "options": [
+      "static_cast",
+      "const_cast",
+      "reinterpret_cast",
+      "dynamic_cast"
+    ],
+    "answer": 3,
+    "explanation": "dynamic_cast safely casts down or across polymorphism hierarchies at runtime using RTTI. If the cast is invalid, it returns nullptr for pointers or throws std::bad_cast for references."
+  },
+  {
+    "id": 43,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Reinterpret Cast",
+    "companyPattern": [
+      "JPMorgan",
+      "Samsung"
+    ],
+    "question": "Which C++ cast operator should be used to convert a pointer of one type directly to a pointer of an unrelated type without type safety checks?",
+    "options": [
+      "static_cast",
+      "reinterpret_cast",
+      "dynamic_cast",
+      "const_cast"
+    ],
+    "answer": 1,
+    "explanation": "reinterpret_cast converts any pointer type to any other pointer type bitwise without type checking. It is low-level and inherently unsafe."
+  },
+  {
+    "id": 44,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Const Cast",
+    "companyPattern": [
+      "Accenture",
+      "LTIMindtree"
+    ],
+    "question": "Which cast operator in C++ is specifically designed to add or remove const or volatile qualifiers from a variable?",
+    "options": [
+      "const_cast",
+      "static_cast",
+      "dynamic_cast",
+      "reinterpret_cast"
+    ],
+    "answer": 0,
+    "explanation": "const_cast is the only C++ cast operator that can explicitly cast away or add constness or volatileness."
+  },
+  {
+    "id": 45,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Delegating Constructors",
+    "companyPattern": [
+      "Oracle",
+      "ServiceNow"
+    ],
+    "question": "In C++11, what is a Delegating Constructor?",
+    "options": [
+      "A constructor that delegates object creation to a factory function",
+      "A constructor that calls another constructor of the same class in its member initializer list",
+      "A constructor that runs asynchronously",
+      "A constructor inherited from a friend class"
+    ],
+    "answer": 1,
+    "explanation": "C++11 delegating constructors allow one constructor of a class to call another constructor of the same class in its initialization list to eliminate code duplication."
+  },
+  {
+    "id": 46,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Inheriting Constructors",
+    "companyPattern": [
+      "Atlassian",
+      "Flipkart"
+    ],
+    "question": "How can a derived class in C++11 inherit all constructors from its base class?",
+    "options": [
+      "using Base::Base;",
+      "inherit Base::Constructors;",
+      "Base() = default;",
+      "using namespace Base;"
+    ],
+    "answer": 0,
+    "explanation": "With using Base::Base;, C++11 derived classes automatically inherit all constructors from the base class Base."
+  },
+  {
+    "id": 47,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Override Keyword",
+    "companyPattern": [
+      "TCS",
+      "Tech Mahindra"
+    ],
+    "question": "What benefit does appending override to a derived class method provide in C++11?",
+    "options": [
+      "It speeds up virtual function call dispatch",
+      "The compiler verifies that the method actually overrides a virtual base method, flagging mismatches as errors",
+      "It makes the method inline",
+      "It prevents further overriding in derived classes"
+    ],
+    "answer": 1,
+    "explanation": "The override specifier ensures compile-time checking. If the base function signature changes or doesn't match, the compiler emits an error instead of silently creating a new overloaded function."
+  },
+  {
+    "id": 48,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Final Keyword",
+    "companyPattern": [
+      "Wipro",
+      "Cognizant"
+    ],
+    "question": "What does the final specifier achieve when applied to a C++ class definition (class Base final { ... };)?",
+    "options": [
+      "It prevents the class from being instantiated",
+      "It prevents any derived class from inheriting from this class",
+      "It makes all class members private",
+      "It allocates the class in read-only memory"
+    ],
+    "answer": 1,
+    "explanation": "final on a class prevents further inheritance. Applied to a virtual function, it prevents derived classes from overriding that function."
+  },
+  {
+    "id": 49,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Member Initializer List",
+    "companyPattern": [
+      "Amazon",
+      "Deloitte"
+    ],
+    "question": "Why is it mandatory to use a Member Initializer List for const members and reference members in C++ constructors?",
+    "options": [
+      "Because const and reference members must be initialized at point of creation, not assigned inside the body",
+      "Because it improves execution speed by 50%",
+      "Because non-initializer list assignment throws a runtime exception",
+      "Because const variables are stored in registers"
+    ],
+    "answer": 0,
+    "explanation": "Const variables and reference members cannot be default-constructed and subsequently assigned; they must be initialized at creation time via the initializer list before the constructor body executes."
+  },
+  {
+    "id": 50,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Order of Initialization",
+    "companyPattern": [
+      "Qualcomm",
+      "Nvidia"
+    ],
+    "question": "In C++, in what order are class data members initialized by a constructor?",
+    "options": [
+      "In the order they appear in the Member Initializer List",
+      "In the order they are declared in the class definition",
+      "In alphabetical order of variable names",
+      "Static members first, then in reverse order of declaration"
+    ],
+    "answer": 1,
+    "explanation": "Data members are ALWAYS initialized in the exact order of their declaration in the class definition, regardless of their order in the constructor initializer list."
+  },
+  {
+    "id": 51,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Struct vs Class",
+    "companyPattern": [
+      "Infosys",
+      "IBM"
+    ],
+    "question": "What is the ONLY default difference between struct and class in C++?",
+    "options": [
+      "struct cannot have member functions; class can",
+      "struct members and inheritance are public by default; class members and inheritance are private by default",
+      "struct is stored on stack; class is stored on heap",
+      "struct does not support constructors"
+    ],
+    "answer": 1,
+    "explanation": "In C++, struct and class are identical except that struct defaults to public member access and public inheritance, while class defaults to private."
+  },
+  {
+    "id": 52,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Union in C++",
+    "companyPattern": [
+      "Capgemini",
+      "Tech Mahindra"
+    ],
+    "question": "What characterizes a union in C++?",
+    "options": [
+      "All members share the same memory location, holding only one active member value at a time",
+      "Members are arranged sequentially in memory like a struct",
+      "Unions cannot contain primitive types",
+      "Unions support virtual inheritance"
+    ],
+    "answer": 0,
+    "explanation": "A union allocates memory equal to its largest data member; all members overlay the same memory space, so writing to one overwrites the others."
+  },
+  {
+    "id": 53,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Placement New",
+    "companyPattern": [
+      "Google",
+      "Meta"
+    ],
+    "question": "What is the purpose of Placement New (new (buffer) Widget()) in C++?",
+    "options": [
+      "It allocates memory on the GPU",
+      "It constructs an object at a pre-allocated memory address without allocating fresh memory",
+      "It creates thread-local objects",
+      "It bypasses constructor calls"
+    ],
+    "answer": 1,
+    "explanation": "Placement new constructs an object inside a pre-allocated memory buffer provided by the caller, frequently used in custom memory allocators and high-performance applications."
+  },
+  {
+    "id": 54,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Deleting Functions",
+    "companyPattern": [
+      "Wipro",
+      "TCS"
+    ],
+    "question": "In C++11, how do you explicitly disable the copy constructor for a class NoCopy?",
+    "options": [
+      "NoCopy(const NoCopy&) = delete;",
+      "NoCopy(const NoCopy&) = private;",
+      "NoCopy(const NoCopy&) = void;",
+      "virtual NoCopy(const NoCopy&) = 0;"
+    ],
+    "answer": 0,
+    "explanation": "= delete explicitly marks a function as deleted, instructing the compiler to generate a compilation error if any code attempts to invoke it."
+  },
+  {
+    "id": 55,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Defaulting Functions",
+    "companyPattern": [
+      "Accenture",
+      "Infosys"
+    ],
+    "question": "How do you request the compiler to generate the default constructor in C++11?",
+    "options": [
+      "Widget() = default;",
+      "Widget() = auto;",
+      "Widget() = inline;",
+      "Widget() = create;"
+    ],
+    "answer": 0,
+    "explanation": "= default instructs the compiler to generate the default implementation of a special member function (constructor, destructor, copy/move assignment)."
+  },
+  {
+    "id": 56,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Function Overloading Resolution",
+    "companyPattern": [
+      "Cognizant",
+      "Oracle"
+    ],
+    "question": "In C++, can two functions be overloaded based solely on their return types (e.g. int calc() and double calc())?",
+    "options": [
+      "Yes, the compiler resolves based on left-hand side assignment",
+      "No, return type alone is insufficient for function overloading and produces a compile error",
+      "Yes, but only if marked inline",
+      "Yes, if declared inside a template"
+    ],
+    "answer": 1,
+    "explanation": "Function overloading requires distinct parameter signatures (number, type, or sequence of parameters). Differing return types alone results in a compilation ambiguity error."
+  },
+  {
+    "id": 57,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Virtual Functions Performance",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "question": "What is the performance overhead of calling a virtual function compared to a non-virtual function in C++?",
+    "options": [
+      "10x slower execution",
+      "Pointer indirection via vPtr/vTable lookup and inability to inline the function call",
+      "High garbage collection overhead",
+      "No overhead at all"
+    ],
+    "answer": 1,
+    "explanation": "Virtual function calls incur a small overhead due to dereferencing the vPtr to access the vTable array, plus the compiler usually cannot inline virtual calls when invoked via pointers/references."
+  },
+  {
+    "id": 58,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "RTTI (typeid)",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Morgan Stanley"
+    ],
+    "question": "Which header and operator in C++ provide Run-Time Type Information to inspect object types at runtime?",
+    "options": [
+      "<typeinfo> and typeid",
+      "<rtti> and typeof",
+      "<type_traits> and is_type",
+      "<iostream> and decltype"
+    ],
+    "answer": 0,
+    "explanation": "The typeid operator (defined in header <typeinfo>) queries the dynamic type of an object at runtime when RTTI is enabled for polymorphic types."
+  },
+  {
+    "id": 59,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Decltype Keyword",
+    "companyPattern": [
+      "ServiceNow",
+      "Adobe"
+    ],
+    "question": "What does the decltype keyword in C++11 do?",
+    "options": [
+      "It casts a variable to a reference type",
+      "It inspects and yields the declared type of an expression at compile time",
+      "It dynamically allocates variable storage",
+      "It deletes pointers safely"
+    ],
+    "answer": 1,
+    "explanation": "decltype extracts the compile-time type of an entity or expression without evaluating the expression."
+  },
+  {
+    "id": 60,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Friend Template",
+    "companyPattern": [
+      "Nvidia",
+      "Qualcomm"
+    ],
+    "question": "Can a template function be declared as a friend of a non-template class in C++?",
+    "options": [
+      "No, templates cannot be friends",
+      "Yes, template functions can be declared as friends of non-template classes",
+      "Only if the class is abstract",
+      "Only if template parameters are integers"
+    ],
+    "answer": 1,
+    "explanation": "C++ permits declaring function templates or specific template instantiations as friends inside a class definition."
+  },
+  {
+    "id": 61,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Pure Virtual Function Body",
+    "companyPattern": [
+      "Intel",
+      "Cisco"
+    ],
+    "question": "Can a Pure Virtual Function in C++ have an implementation body?",
+    "options": [
+      "No, absolute prohibition by compiler",
+      "Yes, a pure virtual function can have a body defined outside the class body",
+      "Yes, but only inline inside the class declaration",
+      "Only if marked static"
+    ],
+    "answer": 1,
+    "explanation": "Surprisingly, C++ permits defining a body for a pure virtual function outside the class body (e.g. void Base::show() { ... }). Derived classes must still override it, but can chain call Base::show()."
+  },
+  {
+    "id": 62,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Static Local Variables in Methods",
+    "companyPattern": [
+      "Walmart Global Tech",
+      "Flipkart"
+    ],
+    "question": "What is the scope and lifetime of a static variable declared inside a class member function?",
+    "options": [
+      "Scope: entire class; Lifetime: function duration",
+      "Scope: local to the function; Lifetime: entire program execution across all instances",
+      "Scope: global; Lifetime: object instantiation",
+      "Scope: local; Lifetime: destroyed when function returns"
+    ],
+    "answer": 1,
+    "explanation": "A static local variable in a method is initialized once on first execution and persists for the program duration across all class instances, scoped locally to that method."
+  },
+  {
+    "id": 63,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Multiple Inheritance Ambiguity",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "If Class C inherits from Class A and Class B, both having a public method display(), how is display() called unambiguously on an object c of Class C?",
+    "options": [
+      "c.display()",
+      "c.A::display()",
+      "c->A.display()",
+      "c.display(A)"
+    ],
+    "answer": 1,
+    "explanation": "Ambiguity in multiple inheritance is explicitly resolved using scope resolution: c.A::display() or c.B::display()."
+  },
+  {
+    "id": 64,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Object Slicing Prevention",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "question": "How can Object Slicing be prevented when passing objects to functions in C++?",
+    "options": [
+      "By passing objects by value",
+      "By passing objects by reference or pointer (const Base &obj or Base *obj)",
+      "By using static member functions",
+      "By making all data members public"
+    ],
+    "answer": 1,
+    "explanation": "Passing derived objects by reference or pointer prevents copying into a value base object, preserving polymorphism and avoiding slicing."
+  },
+  {
+    "id": 65,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Copy Assignment Operator",
+    "companyPattern": [
+      "Accenture",
+      "Cognizant"
+    ],
+    "question": "What is the return type of a standard C++ copy assignment operator (operator=)?",
+    "options": [
+      "void",
+      "ClassName",
+      "ClassName&",
+      "const ClassName"
+    ],
+    "answer": 2,
+    "explanation": "The copy assignment operator returns a reference to the invoking object (ClassName&) returning *this to enable assignment chaining (e.g. a = b = c;)."
+  },
+  {
+    "id": 66,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Self Assignment Guard",
+    "companyPattern": [
+      "IBM",
+      "Deloitte"
+    ],
+    "question": "Why is checking for self-assignment (if (this == &rhs) return *this;) crucial in a custom assignment operator handling heap resources?",
+    "options": [
+      "To avoid syntax errors",
+      "To prevent deallocating resources of the object before copying them onto itself",
+      "To speed up pointer arithmetic",
+      "To bypass virtual table lookups"
+    ],
+    "answer": 1,
+    "explanation": "Without a self-assignment check (a = a;), freeing existing heap memory inside operator= would delete the source data before it can be copied, causing memory corruption."
+  },
+  {
+    "id": 67,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Move Assignment Operator",
+    "companyPattern": [
+      "Qualcomm",
+      "Samsung"
+    ],
+    "question": "What is the typical signature for a Move Assignment Operator in class String?",
+    "options": [
+      "String& operator=(const String& rhs)",
+      "String& operator=(String&& rhs) noexcept",
+      "void operator=(String&& rhs)",
+      "String operator=(String rhs)"
+    ],
+    "answer": 1,
+    "explanation": "A move assignment operator takes an rvalue reference parameter String&& rhs, releases current resources, steals rhs resources, resets rhs pointers, and returns *this by reference."
+  },
+  {
+    "id": 68,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Constexpr Keyword",
+    "companyPattern": [
+      "Nvidia",
+      "Adobe"
+    ],
+    "question": "What does the constexpr keyword indicate when applied to a C++ function or constructor?",
+    "options": [
+      "The function executes in a separate thread",
+      "The function expression can be evaluated at compile time if inputs are constant expressions",
+      "The function cannot be overloaded",
+      "The function returns a const pointer"
+    ],
+    "answer": 1,
+    "explanation": "constexpr specifies that the value of a function or variable can be evaluated at compile time, enabling high-performance compile-time computations."
+  },
+  {
+    "id": 69,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Volatile Keyword",
+    "companyPattern": [
+      "Intel",
+      "Qualcomm"
+    ],
+    "question": "What does the volatile keyword inform the C++ compiler about a member variable?",
+    "options": [
+      "That the variable is stored on the stack",
+      "That the variable may be modified externally (e.g., hardware/interrupts), instructing the compiler not to optimize away reads/writes",
+      "That the variable is thread-locked",
+      "That the variable is constant"
+    ],
+    "answer": 1,
+    "explanation": "volatile prevents compiler optimizations like caching variable values in CPU registers because the variable's value can change outside the compiler's control."
+  },
+  {
+    "id": 70,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Friend Function Scope",
+    "companyPattern": [
+      "Capgemini",
+      "Wipro"
+    ],
+    "question": "Is a friend function declared inside a class considered a member function of that class?",
+    "options": [
+      "Yes, it has access to the this pointer",
+      "No, it is a non-member function that is granted access to private/protected members",
+      "Yes, but only if declared public",
+      "Yes, if it is static"
+    ],
+    "answer": 1,
+    "explanation": "A friend function is NOT a member function of the class; it does not possess a this pointer and cannot be invoked using object dot notation (obj.friendFunc())."
+  },
+  {
+    "id": 71,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Exception Handling in Destructors",
+    "companyPattern": [
+      "Amazon",
+      "Google"
+    ],
+    "question": "Why should C++ destructors NEVER throw exceptions that leave the destructor body?",
+    "options": [
+      "Because it results in compile time errors",
+      "Because throwing an exception during stack unwinding (e.g., during another exception) causes std::terminate() to abort the program",
+      "Because thrown exceptions leak vTables",
+      "Because destructors run in kernel space"
+    ],
+    "answer": 1,
+    "explanation": "If a destructor throws an exception while stack unwinding is already in progress from another active exception, C++ calls std::terminate(), crashing the program immediately."
+  },
+  {
+    "id": 72,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Smart Pointers make_shared",
+    "companyPattern": [
+      "Microsoft",
+      "Oracle"
+    ],
+    "question": "Why is std::make_shared<T>() preferred over std::shared_ptr<T>(new T())?",
+    "options": [
+      "It bypasses constructor calls",
+      "It performs a single memory allocation for both the control block and object, improving cache efficiency and exception safety",
+      "It creates unique pointers automatically",
+      "It turns off reference counting"
+    ],
+    "answer": 1,
+    "explanation": "make_shared combines object creation and shared reference control block creation into one atomic allocation step, reducing overhead and preventing memory leaks if an exception occurs during construction."
+  },
+  {
+    "id": 73,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Anonymous Namespaces",
+    "companyPattern": [
+      "JPMorgan",
+      "Goldman Sachs"
+    ],
+    "question": "What is the primary benefit of an anonymous (unnamed) namespace in C++ source files?",
+    "options": [
+      "It makes functions global across all translation units",
+      "It limits the internal linkage of contained symbols strictly to the current translation unit (file scope)",
+      "It enables fast string parsing",
+      "It prevents garbage collection"
+    ],
+    "answer": 1,
+    "explanation": "Entities defined inside an unnamed namespace have internal linkage, replacing static global declarations and isolating symbols to the single source file."
+  },
+  {
+    "id": 74,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "C++ Polymorphism Type",
+    "companyPattern": [
+      "TCS",
+      "Accenture"
+    ],
+    "question": "Function overloading and Operator overloading in C++ are examples of which type of polymorphism?",
+    "options": [
+      "Runtime Polymorphism",
+      "Compile-Time (Static) Polymorphism",
+      "Ad-hoc Virtual Polymorphism",
+      "Dynamic Subtyping"
+    ],
+    "answer": 1,
+    "explanation": "Overloading is resolved at compile time based on method signatures, making it Compile-Time (Static) Polymorphism. Method overriding with virtual functions is Runtime (Dynamic) Polymorphism."
+  },
+  {
+    "id": 75,
+    "language": "C++",
+    "difficulty": "Easy",
+    "topic": "Default Member Initialization",
+    "companyPattern": [
+      "Infosys",
+      "Tech Mahindra"
+    ],
+    "question": "In C++11, can you initialize non-static data members directly at their declaration in the class body?",
+    "options": [
+      "No, initialization must occur in constructors only",
+      "Yes, using in-class member initializers (e.g. int count = 0;)",
+      "Only if the variable is marked const",
+      "Only if the variable is public"
+    ],
+    "answer": 1,
+    "explanation": "C++11 introduced in-class member initializers, permitting non-static variables to be given default initial values directly in the class definition."
+  },
+  {
+    "id": 76,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Final Method Overriding",
+    "companyPattern": [
+      "Cognizant",
+      "Deloitte"
+    ],
+    "question": "What happens if a derived class attempts to override a virtual function marked with final in the base class?",
+    "options": [
+      "The virtual function is silently ignored",
+      "A compilation error occurs",
+      "A runtime exception is thrown",
+      "The base function is deleted"
+    ],
+    "answer": 1,
+    "explanation": "Marking a virtual function as final prohibits any further derived classes from overriding it; doing so results in a compilation error."
+  },
+  {
+    "id": 77,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Virtual Functions Default Arguments Trap",
+    "companyPattern": [
+      "Adobe",
+      "Meta"
+    ],
+    "question": "What happens when a virtual function with a default parameter is overridden in a derived class with a DIFFERENT default parameter, and called via a Base pointer?",
+    "options": [
+      "The derived default argument is used",
+      "The base default argument is evaluated at compile time, but the derived function body runs at runtime",
+      "A runtime exception occurs",
+      "Compilation error occurs"
+    ],
+    "answer": 1,
+    "explanation": "Default arguments are bound statically at compile time based on the pointer type (Base*), while the virtual method is bound dynamically at runtime. This causes the derived function body to run with the BASE default parameter!"
+  },
+  {
+    "id": 78,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Typeid polymorphic object",
+    "companyPattern": [
+      "Nvidia",
+      "Qualcomm"
+    ],
+    "question": "If ptr is a Base* pointing to a Derived object, what does typeid(*ptr).name() evaluate to if Base has virtual functions?",
+    "options": [
+      "Base",
+      "The dynamic derived type (Derived)",
+      "nullptr",
+      "Compilation error"
+    ],
+    "answer": 1,
+    "explanation": "When Base contains at least one virtual function (polymorphic class), typeid(*ptr) uses RTTI at runtime to inspect the actual dynamic object type (Derived)."
+  },
+  {
+    "id": 79,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Protected Access in Inheritance",
+    "companyPattern": [
+      "Capgemini",
+      "LTIMindtree"
+    ],
+    "question": "If Class B inherits protected from Class A (class B : protected A), how are public members of A accessed outside B?",
+    "options": [
+      "They remain public outside B",
+      "They cannot be accessed outside B (they become protected in B)",
+      "They become private in B",
+      "They cause compilation error"
+    ],
+    "answer": 1,
+    "explanation": "In protected inheritance, public and protected members of base class A become protected inside B, meaning they can be accessed by B and B's derived classes, but NOT directly from outside objects."
+  },
+  {
+    "id": 80,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Constructors in Abstract Classes",
+    "companyPattern": [
+      "Wipro",
+      "HCL"
+    ],
+    "question": "Can an abstract class in C++ have constructors?",
+    "options": [
+      "No, abstract classes cannot have constructors",
+      "Yes, abstract class constructors exist to initialize base class data members when derived objects are instantiated",
+      "Only if the constructor is virtual",
+      "Only static constructors are allowed"
+    ],
+    "answer": 1,
+    "explanation": "Abstract classes CAN have constructors. Even though abstract classes cannot be instantiated directly, their constructors run when derived class objects are instantiated."
+  },
+  {
+    "id": 81,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Pure Virtual Destructor requirement",
+    "companyPattern": [
+      "Microsoft",
+      "Amazon"
+    ],
+    "question": "If a base class has a pure virtual destructor (virtual ~Base() = 0;), must derived classes explicitly override it?",
+    "options": [
+      "Yes, derived classes must explicitly define ~Derived() = 0",
+      "No, the compiler automatically generates a derived destructor which satisfies the requirement",
+      "Yes, derived classes cannot be compiled without explicit virtual destructor override",
+      "No, pure virtual destructors are illegal"
+    ],
+    "answer": 1,
+    "explanation": "Derived classes automatically receive a compiler-generated destructor if not explicitly written, which implicitly overrides the base destructor and satisfies abstract requirements."
+  },
+  {
+    "id": 82,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Size of Empty Class",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "What is sizeof(Empty) for an empty class class Empty {}; in C++?",
+    "options": [
+      "0 bytes",
+      "1 byte (to ensure unique memory addresses for distinct object instances)",
+      "4 bytes",
+      "8 bytes"
+    ],
+    "answer": 1,
+    "explanation": "In C++, an empty class has a non-zero size (typically 1 byte) to guarantee that two distinct object instances have different memory addresses."
+  },
+  {
+    "id": 83,
+    "language": "C++",
+    "difficulty": "Hard",
+    "topic": "Empty Class with Virtual Function Size",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Qualcomm"
+    ],
+    "question": "What is sizeof(Demo) for class Demo { virtual void foo(); }; on a 64-bit architecture?",
+    "options": [
+      "1 byte",
+      "4 bytes",
+      "8 bytes (size of vPtr pointer)",
+      "16 bytes"
+    ],
+    "answer": 2,
+    "explanation": "Introducing a virtual function adds a hidden vPtr pointer to the object instance layout. On a 64-bit system, pointer size is 8 bytes, so sizeof(Demo) is 8 bytes."
+  },
+  {
+    "id": 84,
+    "language": "C++",
+    "difficulty": "Medium",
+    "topic": "Static Data Member Definition",
+    "companyPattern": [
+      "IBM",
+      "Tech Mahindra"
+    ],
+    "question": "Where must non-const static data members of a C++ class be defined and allocated memory?",
+    "options": [
+      "Inside the constructor",
+      "Outside the class definition in a single source file (int ClassName::member = 0;)",
+      "Inside the main function",
+      "Memory is allocated on the heap automatically"
+    ],
+    "answer": 1,
+    "explanation": "Static data members must be declared inside the class, but defined and allocated storage outside the class definition at file scope (unless they are inline static in C++17)."
+  },
+  {
+    "id": 85,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Access Modifiers",
+    "companyPattern": [
+      "TCS",
+      "Infosys",
+      "Wipro"
+    ],
+    "question": "Which access modifier in Java restricts member visibility to the containing class AND its subclasses, as well as classes within the same package?",
+    "options": [
+      "private",
+      "default (package-private)",
+      "protected",
+      "public"
+    ],
+    "answer": 2,
+    "explanation": "'protected' grants access to classes in the same package and subclasses in outside packages. 'private' is restricted to class scope, default is restricted to package scope, and public is unrestricted."
+  },
+  {
+    "id": 86,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Super & This Keywords",
+    "companyPattern": [
+      "Cognizant",
+      "Accenture",
+      "Capgemini"
+    ],
+    "question": "Inside a Java subclass constructor, which statement regarding super() and this() constructor calls is TRUE?",
+    "options": [
+      "Both super() and this() can be called in any order inside a constructor",
+      "super() or this() must be the very first statement in a constructor, and cannot both be called in the same constructor",
+      "super() can only be called from static methods",
+      "this() is used to call base class constructors"
+    ],
+    "answer": 1,
+    "explanation": "In Java, constructor chaining via this() or base initialization via super() MUST be the first statement in a constructor. Because both demand the first position, they cannot both appear in the same constructor."
+  },
+  {
+    "id": 87,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Abstract Class vs Interface",
+    "companyPattern": [
+      "Amazon",
+      "Oracle",
+      "IBM"
+    ],
+    "question": "Prior to Java 8, what was a primary distinction between an Abstract Class and an Interface?",
+    "options": [
+      "Interfaces could hold instance state fields; abstract classes could not",
+      "Abstract classes could contain concrete methods with implementations; interfaces could contain only abstract methods",
+      "Abstract classes support multiple inheritance; interfaces do not",
+      "Interfaces can have constructors; abstract classes cannot"
+    ],
+    "answer": 1,
+    "explanation": "Before Java 8, interfaces could only declare public abstract methods (no method bodies). Abstract classes can provide full concrete implementations, constructors, and instance fields."
+  },
+  {
+    "id": 88,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Interface Default Methods",
+    "companyPattern": [
+      "Infosys",
+      "Deloitte",
+      "LTIMindtree"
+    ],
+    "question": "Starting from Java 8, how can an interface provide a default method implementation without breaking implementing classes?",
+    "options": [
+      "Using the concrete keyword",
+      "Using the default keyword in the method signature (public default void log() { ... })",
+      "Using static abstract blocks",
+      "Using the final keyword"
+    ],
+    "answer": 1,
+    "explanation": "Java 8 introduced default methods in interfaces (default void msg() { ... }) allowing interfaces to add new functional implementations without breaking backward compatibility of existing implementing classes."
+  },
+  {
+    "id": 89,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Interface Multiple Inheritance Trap",
+    "companyPattern": [
+      "Microsoft",
+      "Goldman Sachs",
+      "Amazon"
+    ],
+    "question": "If a Java class implements two interfaces InterfaceA and InterfaceB that both declare an identical default method void show(), what happens?",
+    "options": [
+      "InterfaceA show() takes priority automatically",
+      "Compilation error occurs due to duplicate default methods unless the implementing class explicitly overrides show()",
+      "Runtime exception is thrown when calling show()",
+      "The compiler deletes both default methods"
+    ],
+    "answer": 1,
+    "explanation": "This is Java's interface default method conflict (diamond problem). The compiler cannot guess which default implementation to choose and emits a compilation error unless the implementing class explicitly overrides the conflicting method."
+  },
+  {
+    "id": 90,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Final Keyword",
+    "companyPattern": [
+      "Tech Mahindra",
+      "Wipro",
+      "TCS"
+    ],
+    "question": "What effect does declaring a Java class as final (public final class Security) have on inheritance?",
+    "options": [
+      "The class cannot be instantiated",
+      "The class cannot be subclassed/extended by any other class",
+      "All methods of the class automatically become abstract",
+      "The class can only contain static members"
+    ],
+    "answer": 1,
+    "explanation": "The final keyword applied to a class prevents inheritance (e.g. java.lang.String is final). When applied to a method, it prevents overriding; when applied to a variable, it makes it immutable/constant."
+  },
+  {
+    "id": 91,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Static Keyword",
+    "companyPattern": [
+      "Cognizant",
+      "Accenture",
+      "HCL"
+    ],
+    "question": "Can a static method in Java be overridden by a subclass?",
+    "options": [
+      "Yes, runtime polymorphism applies to static methods",
+      "No, static methods are bound at compile time; redeclaring a static method in a subclass hides it (method hiding) rather than overriding it",
+      "Yes, if marked with @Override",
+      "Only if the class is abstract"
+    ],
+    "answer": 1,
+    "explanation": "Static methods in Java belong to the class, not object instances. They are resolved via static binding at compile time. Defining a matching static method in a subclass results in 'method hiding', not overriding."
+  },
+  {
+    "id": 92,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Covariant Return Type",
+    "companyPattern": [
+      "Google",
+      "Meta",
+      "Adobe"
+    ],
+    "question": "What is a Covariant Return Type in Java method overriding?",
+    "options": [
+      "Changing a method return type from primitive int to double in derived class",
+      "Overriding a method with a return type that is a subclass of the return type declared in the parent class method",
+      "Forcing a method to return Object",
+      "Returning multiple values using tuples"
+    ],
+    "answer": 1,
+    "explanation": "Since Java 5, an overriding method in a subclass can declare a return type that is a subtype (derived class) of the return type declared in the superclass method."
+  },
+  {
+    "id": 93,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Object Class equals and hashCode",
+    "companyPattern": [
+      "JPMorgan",
+      "Walmart Global Tech",
+      "PayPal"
+    ],
+    "question": "What is the contract between equals() and hashCode() in Java?",
+    "options": [
+      "If two objects are equal according to equals(), they MUST have the same hashCode() value",
+      "If two objects have the same hashCode(), they MUST be equal according to equals()",
+      "equals() and hashCode() are completely independent",
+      "Overriding equals() automatically overrides hashCode()"
+    ],
+    "answer": 0,
+    "explanation": "The Java contract specifies: If objA.equals(objB) is true, then objA.hashCode() == objB.hashCode() MUST be true. However, equal hashCodes do NOT guarantee object equality due to hash collisions."
+  },
+  {
+    "id": 94,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Encapsulation",
+    "companyPattern": [
+      "TCS",
+      "Infosys",
+      "Capgemini"
+    ],
+    "question": "How is strict Encapsulation achieved in a Java JavaBean/POJO class?",
+    "options": [
+      "By making all class variables public and methods private",
+      "By declaring instance variables private and providing public getter and setter methods",
+      "By marking the class as static",
+      "By inheriting from java.lang.Encapsulated"
+    ],
+    "answer": 1,
+    "explanation": "Encapsulation hides internal object state by making instance variables private and exposing controlled access via public getter/setter accessor methods."
+  },
+  {
+    "id": 95,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Output Prediction String Concatenation",
+    "companyPattern": [
+      "TCS",
+      "Wipro",
+      "Infosys"
+    ],
+    "question": "What is the output of: System.out.println(10 + 20 + \"Java\" + 10 + 20);",
+    "options": [
+      "1020Java1020",
+      "30Java1020",
+      "30Java30",
+      "Compilation Error"
+    ],
+    "answer": 1,
+    "explanation": "Expression evaluation proceeds left to right: 10 + 20 evaluates to integer 30. 30 + 'Java' performs string concatenation yielding '30Java'. Subsequent + 10 and + 20 concatenate as strings: '30Java1020'."
+  },
+  {
+    "id": 96,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Output Prediction Class Init",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft",
+      "ServiceNow"
+    ],
+    "question": "In Java subclass initialization, what is the execution sequence of Parent Static Block, Child Static Block, Parent Instance Block, Parent Constructor, Child Instance Block, Child Constructor?",
+    "options": [
+      "Parent Static -> Child Static -> Parent Instance -> Parent Cons -> Child Instance -> Child Cons",
+      "Parent Static -> Parent Instance -> Parent Cons -> Child Static -> Child Instance -> Child Cons",
+      "Child Static -> Parent Static -> Child Instance -> Child Cons",
+      "Parent Instance -> Child Instance -> Parent Static -> Child Static"
+    ],
+    "answer": 0,
+    "explanation": "Initialization order in Java: 1. Parent Static block -> 2. Child Static block -> 3. Parent Instance init block -> 4. Parent Constructor -> 5. Child Instance init block -> 6. Child Constructor."
+  },
+  {
+    "id": 97,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Output Prediction Dynamic Dispatch",
+    "companyPattern": [
+      "Oracle",
+      "Cisco",
+      "Qualcomm"
+    ],
+    "question": "Given class A { void print() { System.out.print(\"A\"); } } and class B extends A { void print() { System.out.print(\"B\"); } }, what is printed by A obj = new B(); obj.print();?",
+    "options": [
+      "A",
+      "B",
+      "AB",
+      "Compilation Error"
+    ],
+    "answer": 1,
+    "explanation": "In Java, all non-static methods are virtual by default. Dynamic method dispatch binds obj.print() to the actual runtime object B, printing 'B'."
+  },
+  {
+    "id": 98,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Output Prediction Overloading Null Trap",
+    "companyPattern": [
+      "Google",
+      "Goldman Sachs",
+      "Atlassian"
+    ],
+    "question": "Given static void test(Object o) and static void test(String s), what happens when executing test(null);?",
+    "options": [
+      "Executes test(Object)",
+      "Executes test(String)",
+      "Compilation Error: Ambiguous",
+      "NullPointerException"
+    ],
+    "answer": 1,
+    "explanation": "When resolving overloaded methods with null, the Java compiler picks the MOST SPECIFIC matching method type. Since String is a subclass of Object, String is more specific, executing test(String)."
+  },
+  {
+    "id": 99,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Output Prediction Field Hiding",
+    "companyPattern": [
+      "Accenture",
+      "Cognizant",
+      "Deloitte"
+    ],
+    "question": "Given class Parent { int x = 10; } and class Child extends Parent { int x = 20; }, what is printed by Parent p = new Child(); System.out.println(p.x);?",
+    "options": [
+      "10",
+      "20",
+      "0",
+      "Compilation Error"
+    ],
+    "answer": 0,
+    "explanation": "In Java, variables (fields) are NOT polymorphic! Variable access is resolved statically at compile time based on the reference type (Parent p). Therefore, p.x accesses Parent.x, printing 10."
+  },
+  {
+    "id": 100,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Anonymous Inner Class",
+    "companyPattern": [
+      "Infosys",
+      "Wipro"
+    ],
+    "question": "What is an Anonymous Inner Class in Java?",
+    "options": [
+      "A class declared without a name that is instantiated inline, often implementing an interface or extending a class",
+      "A private static inner class",
+      "A class created by garbage collector",
+      "A class without any methods"
+    ],
+    "answer": 0,
+    "explanation": "An anonymous inner class in Java allows declaring and instantiating a class on the fly without assigning it an explicit type name."
+  },
+  {
+    "id": 101,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Static Inner Class vs Member Inner Class",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "question": "What is the key structural difference between a static nested class and an inner class in Java?",
+    "options": [
+      "Static nested classes can access outer instance variables directly; member inner classes cannot",
+      "Member inner classes hold an implicit reference to an instance of the outer class; static nested classes do not",
+      "Static nested classes cannot have constructors",
+      "Member inner classes cannot implement interfaces"
+    ],
+    "answer": 1,
+    "explanation": "A member inner class is bound to an outer class instance and holds a reference to Outer.this. A static nested class is independent of outer instance state."
+  },
+  {
+    "id": 102,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Marker Interface",
+    "companyPattern": [
+      "TCS",
+      "Accenture"
+    ],
+    "question": "What is a Marker Interface in Java?",
+    "options": [
+      "An interface with default methods only",
+      "An interface with zero fields and zero methods, used to convey metadata to the JVM (e.g. Serializable, Cloneable)",
+      "An interface that marks a class as final",
+      "An interface with static methods"
+    ],
+    "answer": 1,
+    "explanation": "Marker (or tag) interfaces contain no method declarations. They act as type flags indicating to the JVM or frameworks that implementing classes possess specific runtime behaviors."
+  },
+  {
+    "id": 103,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Functional Interface",
+    "companyPattern": [
+      "Cognizant",
+      "Capgemini"
+    ],
+    "question": "What defines a Functional Interface in Java 8?",
+    "options": [
+      "An interface with only default methods",
+      "An interface containing exactly ONE abstract method (can be annotated with @FunctionalInterface)",
+      "An interface that returns lambdas",
+      "An interface marked static"
+    ],
+    "answer": 1,
+    "explanation": "A Functional Interface in Java contains exactly one abstract method, making it eligible to be instantiated via Lambda expressions or method references."
+  },
+  {
+    "id": 104,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Method Overloading Rules",
+    "companyPattern": [
+      "Tech Mahindra",
+      "IBM"
+    ],
+    "question": "Can method overloading in Java be achieved by changing ONLY the access modifier of a method?",
+    "options": [
+      "Yes, changing public to private overloads the method",
+      "No, changing only the access modifier yields a compile error due to duplicate method signature",
+      "Yes, if the method is static",
+      "Yes, in abstract classes"
+    ],
+    "answer": 1,
+    "explanation": "Method overloading requires changing the parameter list. Altering access modifiers or return types alone produces a duplicate method compilation error."
+  },
+  {
+    "id": 105,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Method Overriding Access Rules",
+    "companyPattern": [
+      "Oracle",
+      "JPMorgan"
+    ],
+    "question": "When overriding a method in Java, what restriction applies to the access modifier of the derived class method?",
+    "options": [
+      "The derived method must have a MORE restrictive access modifier",
+      "The derived method CANNOT have a more restrictive access modifier than the superclass method",
+      "The derived method must be declared private",
+      "Access modifiers must be removed"
+    ],
+    "answer": 1,
+    "explanation": "An overriding method cannot reduce the visibility of the base method. If base is protected, derived must be protected or public."
+  },
+  {
+    "id": 106,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Instanceof Operator",
+    "companyPattern": [
+      "Wipro",
+      "HCL"
+    ],
+    "question": "What does the instanceof operator in Java test?",
+    "options": [
+      "Whether an object belongs to a class or implements an interface at runtime",
+      "The size of an object in memory",
+      "Whether a variable is static",
+      "Whether an object is garbage collected"
+    ],
+    "answer": 0,
+    "explanation": "The instanceof keyword tests whether an object reference is an instance of a specific class, subclass, or interface, returning boolean true or false."
+  },
+  {
+    "id": 107,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Composition vs Inheritance",
+    "companyPattern": [
+      "Deloitte",
+      "LTIMindtree"
+    ],
+    "question": "Why is 'Composition over Inheritance' considered a recommended Object-Oriented design principle?",
+    "options": [
+      "Composition allows dynamic change of behaviors at runtime ('has-a') and avoids tight coupling of inheritance ('is-a')",
+      "Inheritance is deprecated in modern Java",
+      "Composition speeds up compilation time",
+      "Composition eliminates private access"
+    ],
+    "answer": 0,
+    "explanation": "Composition builds complex objects by combining simpler objects ('has-a' relationship). It avoids fragile base class issues and tight coupling associated with inheritance."
+  },
+  {
+    "id": 108,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Aggregation vs Composition",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Amazon"
+    ],
+    "question": "What is the key difference between Aggregation and Composition in OOP?",
+    "options": [
+      "In Aggregation, child objects cannot exist without parent; in Composition, they can",
+      "In Composition, child objects cannot exist independently of parent object lifetime (strong relationship); in Aggregation, children exist independently (weak relationship)",
+      "Aggregation applies to interfaces; Composition applies to abstract classes",
+      "There is no difference"
+    ],
+    "answer": 1,
+    "explanation": "Composition represents a strong ownership relationship (House and Room). Aggregation represents a weak relationship (Department and Teacher)."
+  },
+  {
+    "id": 109,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Immutable Class Creation",
+    "companyPattern": [
+      "Google",
+      "ServiceNow"
+    ],
+    "question": "Which of the following steps is REQUIRED to create a custom Immutable Class in Java?",
+    "options": [
+      "Declare class as final, make fields private final, do not provide setters, and perform deep defensive copies of mutable fields in getters/constructors",
+      "Make all methods static",
+      "Inherit from java.lang.Immutable",
+      "Implement Cloneable"
+    ],
+    "answer": 0,
+    "explanation": "Creating immutable classes (like String) requires a final class, private final fields, no setters, and defensive copying of mutable objects during construction/access."
+  },
+  {
+    "id": 110,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Upcasting and Downcasting",
+    "companyPattern": [
+      "Infosys",
+      "TCS"
+    ],
+    "question": "In Java, what happens when performing Downcasting without type checking (Child c = (Child) parentObj;) when parentObj is actually an instance of Parent?",
+    "options": [
+      "Compilation error occurs",
+      "ClassCastException is thrown at runtime",
+      "c becomes null",
+      "Object is sliced automatically"
+    ],
+    "answer": 1,
+    "explanation": "Downcasting an object reference to a derived type that it does not actually instantiate compiles successfully, but throws a ClassCastException at runtime."
+  },
+  {
+    "id": 111,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Abstract Class Constructor",
+    "companyPattern": [
+      "Accenture",
+      "Cognizant"
+    ],
+    "question": "Can an abstract class in Java have constructors, and how are they executed?",
+    "options": [
+      "No, abstract classes cannot have constructors",
+      "Yes, abstract class constructors exist and are called when a concrete subclass is instantiated via super()",
+      "Yes, but they can only be invoked statically",
+      "Only default private constructors are allowed"
+    ],
+    "answer": 1,
+    "explanation": "Abstract classes have constructors to initialize fields defined in the abstract class. They run automatically during subclass instantiation when super() executes."
+  },
+  {
+    "id": 112,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Interface Static Methods",
+    "companyPattern": [
+      "Wipro",
+      "Capgemini"
+    ],
+    "question": "Can static methods in Java 8 interfaces be overridden by implementing classes?",
+    "options": [
+      "Yes, they behave like default methods",
+      "No, static interface methods cannot be overridden or inherited; they must be invoked using the interface name (InterfaceName.method())",
+      "Yes, if annotated with @Override",
+      "Only in functional interfaces"
+    ],
+    "answer": 1,
+    "explanation": "Static interface methods in Java belong strictly to the interface namespace. They are not inherited by implementing classes and cannot be overridden."
+  },
+  {
+    "id": 113,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Final Variable Initialization",
+    "companyPattern": [
+      "Tech Mahindra",
+      "IBM"
+    ],
+    "question": "Where MUST a blank final instance variable in Java be initialized?",
+    "options": [
+      "Inside the main() method",
+      "Either at declaration time or inside all class constructors (or instance initializer block)",
+      "In a static block",
+      "It is automatically initialized to zero"
+    ],
+    "answer": 1,
+    "explanation": "A blank final instance variable must be assigned a value exactly once before constructor execution completes."
+  },
+  {
+    "id": 114,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Finalize Method Deprecation",
+    "companyPattern": [
+      "Oracle",
+      "Cisco"
+    ],
+    "question": "Why was the finalize() method deprecated in Java 9?",
+    "options": [
+      "Because it caused compilation errors",
+      "Because it is unpredictable, unsafe, introduces performance degradation, and can cause deadlocks/object resurrection issues",
+      "Because Java eliminated garbage collection",
+      "Because interfaces replaced it"
+    ],
+    "answer": 1,
+    "explanation": "finalize() execution timing is non-deterministic and unreliable. Java 9 deprecated it in favor of AutoCloseable and Cleaner."
+  },
+  {
+    "id": 115,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Try with Resources",
+    "companyPattern": [
+      "Deloitte",
+      "LTIMindtree"
+    ],
+    "question": "What interface must a Java class implement to be used within a Try-With-Resources block (try (Resource r = new Resource()))?",
+    "options": [
+      "java.lang.Cloneable",
+      "java.lang.AutoCloseable (or Closeable)",
+      "java.io.Serializable",
+      "java.lang.Runnable"
+    ],
+    "answer": 1,
+    "explanation": "Try-With-Resources automatically closes managed resources when exiting the block. Any class used must implement AutoCloseable or Closeable."
+  },
+  {
+    "id": 116,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Shallow vs Deep Copy in Java",
+    "companyPattern": [
+      "JPMorgan",
+      "Amazon"
+    ],
+    "question": "What is performed by the default Object.clone() method in Java?",
+    "options": [
+      "Deep copy of all nested object references",
+      "Shallow copy (field-by-field copy of primitives and reference addresses)",
+      "Serializes object to JSON",
+      "Returns an uninitialized instance"
+    ],
+    "answer": 1,
+    "explanation": "Object.clone() creates a shallow copy. Primitives are copied by value, but object reference fields copy only pointer references, resulting in shared mutable subobjects."
+  },
+  {
+    "id": 117,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Garbage Collection and OOP",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "Does calling System.gc() in Java guarantee immediate garbage collection of unreachable objects?",
+    "options": [
+      "Yes, it forces instant memory deallocation",
+      "No, it is merely a request/hint to the JVM to run garbage collection; execution is not guaranteed",
+      "Yes, if memory is low",
+      "It throws a runtime exception"
+    ],
+    "answer": 1,
+    "explanation": "System.gc() suggests to the JVM that garbage collection be run, but the JVM specification does not guarantee that GC will execute immediately."
+  },
+  {
+    "id": 118,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Package-Private Access",
+    "companyPattern": [
+      "Cognizant",
+      "Accenture"
+    ],
+    "question": "What is the access level of a class member in Java if no access modifier keyword (public, protected, private) is specified?",
+    "options": [
+      "public",
+      "private",
+      "default / package-private (accessible only within the same package)",
+      "protected"
+    ],
+    "answer": 2,
+    "explanation": "If no access modifier is specified, the member defaults to package-private access, meaning it is accessible to all classes in the same package."
+  },
+  {
+    "id": 119,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Static Block Execution",
+    "companyPattern": [
+      "Capgemini",
+      "IBM"
+    ],
+    "question": "When is a static initialization block in a Java class executed?",
+    "options": [
+      "When an object of the class is created",
+      "Exactly once when the JVM loads the class into memory",
+      "Every time a static method is called",
+      "When garbage collector cleans the class"
+    ],
+    "answer": 1,
+    "explanation": "Static initializer blocks run exactly once when the class is loaded into the JVM by the ClassLoader, prior to any object instantiation."
+  },
+  {
+    "id": 120,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Constructor Chaining",
+    "companyPattern": [
+      "Wipro",
+      "HCL"
+    ],
+    "question": "What is Constructor Chaining in Java?",
+    "options": [
+      "Calling static methods from constructors",
+      "The process of calling one constructor from another constructor within the same class (using this()) or base class (using super())",
+      "Linking multiple classes together",
+      "Inheriting constructors from interfaces"
+    ],
+    "answer": 1,
+    "explanation": "Constructor chaining allows constructors to pass initialization responsibilities up the class hierarchy or across overloaded constructors in the same class."
+  },
+  {
+    "id": 121,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Strictfp Keyword",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Nvidia"
+    ],
+    "question": "What was the purpose of the strictfp keyword in Java?",
+    "options": [
+      "To enforce strict thread synchronization",
+      "To restrict floating-point calculations to IEEE 754 standards across different CPU architectures for consistent results",
+      "To force strict memory management",
+      "To restrict subclassing"
+    ],
+    "answer": 1,
+    "explanation": "strictfp ensured floating-point calculations produced identical results across hardware platforms by adhering strictly to IEEE 754 standards."
+  },
+  {
+    "id": 122,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Transient Keyword",
+    "companyPattern": [
+      "PayPal",
+      "ServiceNow"
+    ],
+    "question": "What does the transient keyword signify when applied to an instance variable in a Java class?",
+    "options": [
+      "The variable is stored in temporary CPU registers",
+      "The variable should be skipped (ignored) during object Serialization",
+      "The variable is shared across threads",
+      "The variable cannot be modified"
+    ],
+    "answer": 1,
+    "explanation": "Marking a variable transient prevents it from being persisted during serialization, useful for sensitive data (passwords) or dynamic cache fields."
+  },
+  {
+    "id": 123,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Volatile Keyword Java",
+    "companyPattern": [
+      "Amazon",
+      "Google"
+    ],
+    "question": "What guarantee does the volatile keyword provide for a variable in Java multithreading?",
+    "options": [
+      "Ensures atomic operation for complex calculations",
+      "Guarantees read/write visibility directly from main memory across threads, preventing thread-caching in CPU registers",
+      "Locks the variable with a mutex",
+      "Prevents garbage collection"
+    ],
+    "answer": 1,
+    "explanation": "volatile guarantees visibility of changes to variables across threads by forcing reads and writes directly to main memory instead of CPU caches."
+  },
+  {
+    "id": 124,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Polymorphism Definition",
+    "companyPattern": [
+      "Infosys",
+      "TCS"
+    ],
+    "question": "Dynamic Method Dispatch in Java is a mechanism by which a call to an overridden method is resolved at:",
+    "options": [
+      "Compile time",
+      "Runtime",
+      "Link time",
+      "Packaging time"
+    ],
+    "answer": 1,
+    "explanation": "Dynamic method dispatch is Java's runtime polymorphism mechanism where calls to overridden instance methods are resolved dynamically at runtime."
+  },
+  {
+    "id": 125,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Abstract Method Rules",
+    "companyPattern": [
+      "Accenture",
+      "Cognizant"
+    ],
+    "question": "Can a method in Java be declared both abstract and final?",
+    "options": [
+      "Yes, to enforce override rules",
+      "No, compile error: abstract mandates overriding while final prohibits overriding",
+      "Yes, in interfaces only",
+      "Yes, if the method is private"
+    ],
+    "answer": 1,
+    "explanation": "abstract demands that subclasses override the method body, whereas final prohibits overriding. Declaring a method both abstract and final causes a compile conflict."
+  },
+  {
+    "id": 126,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Private Method Overriding Trap",
+    "companyPattern": [
+      "Deloitte",
+      "LTIMindtree"
+    ],
+    "question": "If a superclass has a private void display() method, and a subclass defines a public void display() method, is this considered Method Overriding?",
+    "options": [
+      "Yes, it is runtime overriding",
+      "No, private methods are hidden from subclasses; the subclass method is an independent new method, not an override",
+      "Compilation error due to access mismatch",
+      "Yes, with covariant return type"
+    ],
+    "answer": 1,
+    "explanation": "Private methods are not visible to subclasses and cannot be overridden. The subclass method simply creates a new, unrelated method in its own scope."
+  },
+  {
+    "id": 127,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Interface Variables",
+    "companyPattern": [
+      "Wipro",
+      "Tech Mahindra"
+    ],
+    "question": "All variables declared inside a Java interface are implicitly:",
+    "options": [
+      "private static final",
+      "public static final",
+      "protected final",
+      "public volatile"
+    ],
+    "answer": 1,
+    "explanation": "Fields in interfaces are automatically public static final constants."
+  },
+  {
+    "id": 128,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Diamond Inheritance in Interfaces",
+    "companyPattern": [
+      "Oracle",
+      "Cisco"
+    ],
+    "question": "Why does Java permit multiple interface inheritance but forbid multiple class inheritance?",
+    "options": [
+      "Interfaces do not carry instance state (fields), avoiding state duplication/ambiguity inherent in class multiple inheritance",
+      "Interfaces run faster",
+      "Classes use virtual tables",
+      "Interfaces cannot have methods"
+    ],
+    "answer": 0,
+    "explanation": "Class multiple inheritance introduces state collisions. Since interfaces historically held no state fields, Java allowed multiple interface implementation without diamond state corruption."
+  },
+  {
+    "id": 129,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Enum in Java OOP",
+    "companyPattern": [
+      "Capgemini",
+      "IBM"
+    ],
+    "question": "Can Java enum types implement interfaces and declare methods/constructors?",
+    "options": [
+      "No, enums are primitive constants only",
+      "Yes, Java enums are full-fledged classes that can have methods, constructors, fields, and implement interfaces",
+      "Enums can implement interfaces but cannot have constructors",
+      "Enums can extend abstract classes"
+    ],
+    "answer": 1,
+    "explanation": "In Java, enum is a rich class type. Enums can implement interfaces, hold private constructors, possess instance fields, and define concrete or abstract methods."
+  },
+  {
+    "id": 130,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Class Load Order Static Trap",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Amazon"
+    ],
+    "question": "What happens if a static field initializer calls a static method of the same class before that static block completes?",
+    "options": [
+      "NullPointerException",
+      "Method executes using default initial values (e.g. 0 or null) of uninitialized static fields",
+      "Compilation error",
+      "Infinite recursion"
+    ],
+    "answer": 1,
+    "explanation": "Static fields are initialized in textual order. If a method reads a static variable before its static initializer has executed, it receives default type values."
+  },
+  {
+    "id": 131,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Default Constructor Generation",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "When does the Java compiler automatically generate a zero-argument Default Constructor for a class?",
+    "options": [
+      "Always for every class",
+      "ONLY when NO explicit constructors are defined in the class body",
+      "When the class is marked public",
+      "When the class extends another class"
+    ],
+    "answer": 1,
+    "explanation": "If a class defines NO constructors, the compiler inserts a public no-arg default constructor."
+  },
+  {
+    "id": 132,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Inner Class Static Declaration",
+    "companyPattern": [
+      "Cognizant",
+      "Accenture"
+    ],
+    "question": "Prior to Java 16, could a non-static member inner class declare static methods or static fields (non-constant)?",
+    "options": [
+      "Yes, freely",
+      "No, non-static inner classes could not declare static members (unless static final constants) compile error",
+      "Yes, if marked private",
+      "Yes, in abstract classes"
+    ],
+    "answer": 1,
+    "explanation": "Before Java 16, non-static inner classes were tied to outer instances and could not contain static members (except compile-time static final constants)."
+  },
+  {
+    "id": 133,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Anonymous Class Interface Trap",
+    "companyPattern": [
+      "Wipro",
+      "HCL"
+    ],
+    "question": "Can an anonymous class in Java implement multiple interfaces simultaneously during instantiation?",
+    "options": [
+      "Yes, using the & operator",
+      "No, an anonymous class can extend exactly one class OR implement exactly one interface at instantiation time",
+      "Yes, using comma separation",
+      "Only if interfaces are marker interfaces"
+    ],
+    "answer": 1,
+    "explanation": "The syntax for anonymous classes (new InterfaceName() { ... }) allows extending one class or implementing one single interface per expression."
+  },
+  {
+    "id": 134,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Super In Static Context Trap",
+    "companyPattern": [
+      "Deloitte",
+      "LTIMindtree"
+    ],
+    "question": "What happens if you attempt to use super or this inside a static method in Java?",
+    "options": [
+      "It accesses static parent variables",
+      "Compilation error: non-static variable super/this cannot be referenced from a static context",
+      "Runtime exception",
+      "Accesses global namespace"
+    ],
+    "answer": 1,
+    "explanation": "static methods exist independently of object instances and lack instance context (this or super). Referencing this or super inside static methods causes a compile error."
+  },
+  {
+    "id": 135,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Equals method signature trap",
+    "companyPattern": [
+      "Adobe",
+      "Microsoft"
+    ],
+    "question": "What is the mistake in this code: public boolean equals(Student s) { return this.id == s.id; }?",
+    "options": [
+      "Method overloads Object.equals(Object) instead of overriding it, causing polymorphic collections (like HashSet) to call Object.equals()",
+      "Syntax error in parameter",
+      "Equals cannot return boolean",
+      "Should be static"
+    ],
+    "answer": 0,
+    "explanation": "The correct method signature for overriding Object.equals is equals(Object obj). Parameterizing with Student s overloads the method instead of overriding."
+  },
+  {
+    "id": 136,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Overriding Exception Rules",
+    "companyPattern": [
+      "Amazon",
+      "Goldman Sachs"
+    ],
+    "question": "If a superclass method declares void process() throws IOException, what checked exceptions can an overriding subclass method declare?",
+    "options": [
+      "Any checked exception including Exception",
+      "Only IOException, any subclass of IOException, or NO checked exceptions at all",
+      "Must declare exactly IOException",
+      "Must declare RuntimeException only"
+    ],
+    "answer": 1,
+    "explanation": "An overriding method can declare fewer or narrower checked exceptions than the superclass method, or no checked exceptions at all. It CANNOT declare new or broader checked exceptions."
+  },
+  {
+    "id": 137,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Pass by Value Java Trap",
+    "companyPattern": [
+      "Infosys",
+      "TCS"
+    ],
+    "question": "Is Java 'Pass-by-Value' or 'Pass-by-Reference' when passing object references to methods?",
+    "options": [
+      "Pass-by-Reference",
+      "Pass-by-Value (the object reference copy is passed by value)",
+      "Pass-by-Reference for objects, Pass-by-Value for primitives",
+      "Pass-by-Name"
+    ],
+    "answer": 1,
+    "explanation": "Java is strictly Pass-by-Value. When passing an object, a copy of the reference pointer is passed by value."
+  },
+  {
+    "id": 138,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Records in Java 14+",
+    "companyPattern": [
+      "Oracle",
+      "ServiceNow"
+    ],
+    "question": "What feature was introduced in Java 14/16 (public record Point(int x, int y) {}) to simplify immutable data carrier classes?",
+    "options": [
+      "Dataclasses",
+      "Records (automatically generating getters, equals, hashCode, toString, and final fields)",
+      "Structs",
+      "Tuples"
+    ],
+    "answer": 1,
+    "explanation": "Java Records provide a concise syntax for creating immutable data transfer objects (DTOs), automatically creating private final fields, constructor, getters, equals(), hashCode(), and toString()."
+  },
+  {
+    "id": 139,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Sealed Classes Java 17",
+    "companyPattern": [
+      "Google",
+      "Meta"
+    ],
+    "question": "What is the primary function of sealed classes introduced in Java 17 (public sealed class Shape permits Circle, Square)?",
+    "options": [
+      "To restrict which subclasses are permitted to extend or implement the class/interface",
+      "To encrypt class bytecode",
+      "To prevent class loading at runtime",
+      "To enforce singleton pattern"
+    ],
+    "answer": 0,
+    "explanation": "Sealed classes restrict class inheritance hierarchies by explicitly defining via permits which subclasses are authorized to extend the sealed parent."
+  },
+  {
+    "id": 140,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Java Generics Wildcard Extends",
+    "companyPattern": [
+      "Amazon",
+      "Oracle"
+    ],
+    "question": "In Java Generics, what does List<? extends Number> specify?",
+    "options": [
+      "A list that accepts any type",
+      "A list of objects that are instances of Number or a subclass of Number (covariance, read-only safe)",
+      "A list of objects that are superclasses of Number",
+      "A raw list"
+    ],
+    "answer": 1,
+    "explanation": "`? extends T` provides covariance, allowing reading elements as type `T`, but prohibiting adding new items (except null)."
+  },
+  {
+    "id": 141,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Java Generics Wildcard Super",
+    "companyPattern": [
+      "Google",
+      "Microsoft"
+    ],
+    "question": "In Java Generics, what does List<? super Integer> specify?",
+    "options": [
+      "A list of objects of Integer or any supertype of Integer (contravariance, write-safe)",
+      "A list of double values",
+      "A read-only list of Integers",
+      "A syntax error"
+    ],
+    "answer": 0,
+    "explanation": "`? super T` provides contravariance, allowing adding elements of type `T` or its subtypes safely into the collection."
+  },
+  {
+    "id": 142,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Type Erasure in Java Generics",
+    "companyPattern": [
+      "Goldman Sachs",
+      "PayPal"
+    ],
+    "question": "What is Type Erasure in Java Generics?",
+    "options": [
+      "Generics are converted into C pointers at runtime",
+      "The removal of generic type parameters by the Java compiler during compilation, replacing them with bounds or Object",
+      "Deallocation of unused generic classes",
+      "Garbage collection of static types"
+    ],
+    "answer": 1,
+    "explanation": "Java generics are implemented via Type Erasure. The compiler enforces type checks at compile time and strips type arguments, replacing them with bounds or `Object` in bytecode."
+  },
+  {
+    "id": 143,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Synchronized Keyword",
+    "companyPattern": [
+      "JPMorgan",
+      "Morgan Stanley"
+    ],
+    "question": "What happens when a thread enters a synchronized instance method in Java?",
+    "options": [
+      "It acquires the intrinsic lock (monitor lock) of the calling object instance",
+      "It locks the entire JVM",
+      "It halts all other threads in the operating system",
+      "It allocates stack memory"
+    ],
+    "answer": 0,
+    "explanation": "Synchronized instance methods acquire the monitor lock of `this` instance. Synchronized static methods acquire the monitor lock of the `Class` object."
+  },
+  {
+    "id": 144,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Cloneable Interface Pitfall",
+    "companyPattern": [
+      "Capgemini",
+      "Cognizant"
+    ],
+    "question": "What happens if a Java object calls super.clone() without implementing the java.lang.Cloneable interface?",
+    "options": [
+      "Deep copy is returned",
+      "CloneNotSupportedException is thrown at runtime",
+      "Compilation error",
+      "Returns null"
+    ],
+    "answer": 1,
+    "explanation": "Calling `Object.clone()` on an instance that does not implement `Cloneable` triggers a runtime `CloneNotSupportedException`."
+  },
+  {
+    "id": 145,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Stream API and OOP Lambdas",
+    "companyPattern": [
+      "Infosys",
+      "TCS"
+    ],
+    "question": "In Java 8+, how does a method reference System.out::println relate to functional interfaces?",
+    "options": [
+      "It is a shorthand syntax for a Lambda expression implementing a Functional Interface (Consumer)",
+      "It is a reflection call",
+      "It is a macro",
+      "It creates a thread"
+    ],
+    "answer": 0,
+    "explanation": "Method references (e.g., `System.out::println`) provide readable syntax for lambda expressions that implement functional interface contracts."
+  },
+  {
+    "id": 146,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Comparable vs Comparator",
+    "companyPattern": [
+      "Wipro",
+      "Deloitte"
+    ],
+    "question": "What is the difference between Comparable and Comparator interfaces in Java OOP?",
+    "options": [
+      "Comparable defines natural ordering inside the class via compareTo(); Comparator defines custom external ordering via compare()",
+      "Comparator is inside class; Comparable is external",
+      "Comparable supports multiple sorts; Comparator supports single sort",
+      "There is no difference"
+    ],
+    "answer": 0,
+    "explanation": "Comparable (`compareTo(T o)`) modifies the class itself to define default natural ordering. Comparator (`compare(T o1, T o2)`) is an external strategy interface for flexible custom sorting."
+  },
+  {
+    "id": 147,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "HashMap Hash Collision Resolution",
+    "companyPattern": [
+      "Amazon",
+      "Walmart Global Tech"
+    ],
+    "question": "How does Java 8 HashMap resolve high hash collisions within a single bucket?",
+    "options": [
+      "It discards old keys",
+      "It converts the linked list bucket into a balanced Red-Black Tree when collision count exceeds TREEIFY_THRESHOLD (8)",
+      "It resizes array by 10x",
+      "It throws OutOfMemoryError"
+    ],
+    "answer": 1,
+    "explanation": "Java 8 converts collision linked list chains into self-balancing Red-Black Trees when bucket depth reaches 8, improving search time from O(n) to O(log n)."
+  },
+  {
+    "id": 148,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Java Memory Model Metaspace",
+    "companyPattern": [
+      "Tech Mahindra",
+      "HCL"
+    ],
+    "question": "What replaced the Permanent Generation (PermGen) for class metadata storage in Java 8?",
+    "options": [
+      "Metaspace (allocated out of native OS memory)",
+      "Heap Space",
+      "Stack Frame",
+      "Code Cache"
+    ],
+    "answer": 0,
+    "explanation": "Java 8 eliminated PermGen and introduced Metaspace, which allocates class metadata in native OS memory, eliminating fixed PermGen memory limits."
+  },
+  {
+    "id": 149,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Custom Exception Inheritance",
+    "companyPattern": [
+      "TCS",
+      "Accenture"
+    ],
+    "question": "To create a custom Checked Exception in Java, which base class must your custom exception class extend?",
+    "options": [
+      "java.lang.RuntimeException",
+      "java.lang.Exception (excluding RuntimeException)",
+      "java.lang.Throwable",
+      "java.lang.Error"
+    ],
+    "answer": 1,
+    "explanation": "Custom Checked exceptions extend `java.lang.Exception`. Custom Unchecked exceptions extend `java.lang.RuntimeException`."
+  },
+  {
+    "id": 150,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Volatile Atomicity Trap",
+    "companyPattern": [
+      "Nvidia",
+      "Qualcomm"
+    ],
+    "question": "Is the increment operation count++ thread-safe if count is declared volatile int count in Java?",
+    "options": [
+      "Yes, volatile ensures atomicity",
+      "No, count++ is a multi-step read-modify-write operation; volatile ensures visibility but NOT atomicity",
+      "Yes, if marked static",
+      "Yes, in 64-bit JVM"
+    ],
+    "answer": 1,
+    "explanation": "`count++` consists of 3 distinct steps: read value, increment value, write value. `volatile` only guarantees main memory visibility, not atomic execution across threads. (Use `AtomicInteger` instead)."
+  },
+  {
+    "id": 151,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "String Pool Immutability",
+    "companyPattern": [
+      "Oracle",
+      "ServiceNow"
+    ],
+    "question": "Why are Java String objects stored in a String Constant Pool immutable?",
+    "options": [
+      "To prevent compilation errors",
+      "To enable safe string sharing across threads, security checks, and hashcode caching without risk of mutation",
+      "Because JVM cannot write memory",
+      "To restrict memory size to 1MB"
+    ],
+    "answer": 1,
+    "explanation": "String immutability guarantees thread safety, security (URL/DB connection strings), and prevents hashcode invalidation when strings are used as keys in HashMaps."
+  },
+  {
+    "id": 152,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Java System.arraycopy",
+    "companyPattern": [
+      "IBM",
+      "Capgemini"
+    ],
+    "question": "What type of copy is performed by System.arraycopy() for an array of objects in Java?",
+    "options": [
+      "Deep copy",
+      "Shallow copy of object references",
+      "Bytecode encryption",
+      "Zero copy"
+    ],
+    "answer": 1,
+    "explanation": "`System.arraycopy()` performs a shallow copy: for primitive arrays, values are copied; for object arrays, object reference pointers are copied."
+  },
+  {
+    "id": 153,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Abstract Class Private Methods Java 9",
+    "companyPattern": [
+      "Microsoft",
+      "Adobe"
+    ],
+    "question": "Since Java 9, can interfaces contain `private` methods?",
+    "options": [
+      "No, interface methods must be public",
+      "Yes, interfaces can contain private helper methods to encapsulate shared code among default methods",
+      "Only static private methods",
+      "Only in sealed interfaces"
+    ],
+    "answer": 1,
+    "explanation": "Java 9 introduced private interface methods (both static and instance), enabling default methods to share common helper logic without exposing helper methods publicly."
+  },
+  {
+    "id": 154,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Deadlock in Java Threads",
+    "companyPattern": [
+      "Amazon",
+      "Goldman Sachs"
+    ],
+    "question": "What condition leads to a Thread Deadlock in Java Object-Oriented programming?",
+    "options": [
+      "When two or more threads are blocked forever, each waiting for a monitor lock held by the other thread in a circular wait dependency",
+      "When a thread runs out of heap memory",
+      "When a static block throws exception",
+      "When garbage collection takes too long"
+    ],
+    "answer": 0,
+    "explanation": "Deadlock occurs when thread A holds Lock 1 and waits for Lock 2, while thread B holds Lock 2 and waits for Lock 1, creating an unbreakable circular wait dependency."
+  },
+  {
+    "id": 155,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Builder Pattern Java",
+    "companyPattern": [
+      "Google",
+      "Uber"
+    ],
+    "question": "Why is the Builder Design Pattern preferred over Telescoping Constructors in Java classes with many optional fields?",
+    "options": [
+      "Builder pattern improves code readability, enforces immutability, and avoids long error-prone parameter lists",
+      "Builder pattern runs faster",
+      "Telescoping constructors are deprecated",
+      "Builder pattern eliminates memory allocation"
+    ],
+    "answer": 0,
+    "explanation": "The Builder pattern avoids 'telescoping constructors' (overloaded constructors with 5+ parameters) by providing a fluent API (`User.builder().setName().setAge().build()`)."
+  },
+  {
+    "id": 156,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Java Reflection API Trap",
+    "companyPattern": [
+      "Meta",
+      "Atlassian"
+    ],
+    "question": "Can Java Reflection (`field.setAccessible(true)`) access and modify `private` instance variables of a class at runtime?",
+    "options": [
+      "No, private fields are protected by hardware",
+      "Yes, setAccessible(true) suppresses JVM access checks, allowing reflection to inspect and modify private fields",
+      "Only if the class is abstract",
+      "Only in debug mode"
+    ],
+    "answer": 1,
+    "explanation": "Java Reflection can bypass standard access control checks via `setAccessible(true)`, allowing access to private fields and constructors (unless restricted by Java Module System SecurityManager)."
+  },
+  {
+    "id": 157,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Java Initializer Block vs Constructor",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "When does an Instance Initializer block (`{ ... }`) execute in a Java class relative to constructors?",
+    "options": [
+      "Before every constructor execution when an object is instantiated",
+      "After the constructor finishes",
+      "Only once when class is loaded",
+      "Inside static context"
+    ],
+    "answer": 0,
+    "explanation": "Instance initializer blocks run every time an object is instantiated, executing immediately after the `super()` constructor call and BEFORE the body of the child constructor."
+  },
+  {
+    "id": 158,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Static Import Feature",
+    "companyPattern": [
+      "Wipro",
+      "Cognizant"
+    ],
+    "question": "What does the `import static` syntax in Java allow you to do?",
+    "options": [
+      "Import static inner classes only",
+      "Access static members (fields and methods) of a class directly without qualifying them with the class name",
+      "Import static bytecode",
+      "Prevent class instantiation"
+    ],
+    "answer": 1,
+    "explanation": "Static import (e.g., `import static java.lang.Math.*;`) permits calling `sqrt(16)` directly instead of `Math.sqrt(16)`."
+  },
+  {
+    "id": 159,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Covariant Return Type Interface",
+    "companyPattern": [
+      "JPMorgan",
+      "ServiceNow"
+    ],
+    "question": "If interface A defines `Parent get()`, can an implementing class B declare `Child get()`?",
+    "options": [
+      "No, return types must be identical in interfaces",
+      "Yes, covariant return types are permitted in interface method implementations",
+      "Only if return type is primitive",
+      "Only if marked final"
+    ],
+    "answer": 1,
+    "explanation": "Covariant return types apply to interface implementations as well: the implementing class can return a subtype (`Child`) of the interface declared return type (`Parent`)."
+  },
+  {
+    "id": 160,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Copy Constructor in Java",
+    "companyPattern": [
+      "Capgemini",
+      "LTIMindtree"
+    ],
+    "question": "Does Java provide a built-in copy constructor like C++?",
+    "options": [
+      "Yes, automatically generated",
+      "No, Java does not have automatic copy constructors; developers must explicitly implement custom copy constructors (e.g. `Point(Point p)`)",
+      "Yes, using the copy keyword",
+      "Yes, for record types only"
+    ],
+    "answer": 1,
+    "explanation": "Unlike C++, Java does not generate default copy constructors. Developers write custom copy constructors (`Complex(Complex c)`) to copy object state."
+  },
+  {
+    "id": 161,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Transient Volatile Combination",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Nvidia"
+    ],
+    "question": "Can a field in Java be declared both `transient` and `volatile` simultaneously?",
+    "options": [
+      "No, compilation error",
+      "Yes, a field can be transient (ignored by serialization) and volatile (main memory visibility across threads) simultaneously",
+      "Only if static",
+      "Only in abstract classes"
+    ],
+    "answer": 1,
+    "explanation": "There is no compiler conflict between `transient` and `volatile`. A variable can be skipped during serialization while maintaining multi-threaded memory visibility."
+  },
+  {
+    "id": 162,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Class.forName vs ClassLoader",
+    "companyPattern": [
+      "Oracle",
+      "Cisco"
+    ],
+    "question": "What is the key difference between `Class.forName(\"Com.Test\")` and `ClassLoader.loadClass(\"Com.Test\")` in Java?",
+    "options": [
+      "Class.forName loads and initializes the class (executing static blocks); ClassLoader loads the class without initializing it",
+      "ClassLoader initializes static blocks; Class.forName does not",
+      "Class.forName only works on system classes",
+      "There is no difference"
+    ],
+    "answer": 0,
+    "explanation": "`Class.forName()` loads AND initializes static blocks of the class by default. `ClassLoader.loadClass()` loads the bytecode without running static initialization blocks until first use."
+  },
+  {
+    "id": 163,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Java String intern()",
+    "companyPattern": [
+      "Amazon",
+      "Flipkart"
+    ],
+    "question": "What does calling `str.intern()` do in Java?",
+    "options": [
+      "Deletes the string",
+      "Returns a canonical reference to the string from the String Constant Pool, adding it if not present",
+      "Converts string to uppercase",
+      "Encrypts the string"
+    ],
+    "answer": 1,
+    "explanation": "`intern()` searches the String Constant Pool for an equal string. If found, it returns the pooled reference; otherwise, it adds `str` to the pool and returns its reference."
+  },
+  {
+    "id": 164,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Java Object finalize resurrect",
+    "companyPattern": [
+      "Adobe",
+      "Microsoft"
+    ],
+    "question": "Can an object 'resurrect' itself inside its `finalize()` method in Java?",
+    "options": [
+      "No, impossible",
+      "Yes, by assigning `this` to a live static/instance reference inside finalize(), though finalize() will not be called a second time",
+      "Yes, by calling new",
+      "It causes instant crash"
+    ],
+    "answer": 1,
+    "explanation": "An object can resurrect itself inside `finalize()` by assigning `this` to an active reference. However, the JVM will never invoke `finalize()` on that object again if it becomes unreachable a second time."
+  },
+  {
+    "id": 165,
+    "language": "Java",
+    "difficulty": "Hard",
+    "topic": "Java Method Hiding Trap",
+    "companyPattern": [
+      "Google",
+      "Meta"
+    ],
+    "question": "Given Parent static void show() printing 'P' and Child static void show() printing 'C', what is printed by `Parent p = new Child(); p.show();`?",
+    "options": [
+      "C",
+      "P",
+      "PC",
+      "Compilation error"
+    ],
+    "answer": 1,
+    "explanation": "Static methods do NOT support runtime overriding; they use static binding based on reference type (`Parent p`). Thus, `p.show()` invokes `Parent.show()`, printing 'P'."
+  },
+  {
+    "id": 166,
+    "language": "Java",
+    "difficulty": "Easy",
+    "topic": "Superclass Constructor Default Call",
+    "companyPattern": [
+      "TCS",
+      "Wipro"
+    ],
+    "question": "If a subclass constructor does NOT explicitly call `super()` or `this()`, what does the compiler insert automatically?",
+    "options": [
+      "`super()` (no-arg base constructor call) as the first statement",
+      "Nothing",
+      "`this()`",
+      "System.exit(0)"
+    ],
+    "answer": 0,
+    "explanation": "If a constructor has no explicit `super(...)` or `this(...)` call, the compiler automatically inserts an implicit call to `super()` (the zero-argument constructor of the superclass)."
+  },
+  {
+    "id": 167,
+    "language": "Java",
+    "difficulty": "Medium",
+    "topic": "Java Optional Class in OOP",
+    "companyPattern": [
+      "ServiceNow",
+      "Atlassian"
+    ],
+    "question": "What is the primary OOP design motivation behind Java 8's `Optional<T>` class?",
+    "options": [
+      "To replace all nullable fields",
+      "To provide a type-level representation of optional values for return types, avoiding NullPointerException bugs",
+      "To speed up garbage collection",
+      "To encrypt object pointers"
+    ],
+    "answer": 1,
+    "explanation": "`Optional<T>` provides a explicit functional container for return values that may be missing, forcing API consumers to handle null cases explicitly."
+  },
+  {
+    "id": 168,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Constructors & init",
+    "companyPattern": [
+      "TCS",
+      "Infosys",
+      "Wipro"
+    ],
+    "question": "In Python, what is the role of the __init__ method in a class?",
+    "options": [
+      "To allocate memory for the object (constructor)",
+      "To initialize instance attributes after object allocation",
+      "To delete the object from memory",
+      "To convert object to string"
+    ],
+    "answer": 1,
+    "explanation": "__init__ is the instance initializer method called immediately after the object has been created by __new__. It initializes the instance's attributes."
+  },
+  {
+    "id": 169,
+    "language": "Python",
+    "difficulty": "Hard",
+    "topic": "Object Creation __new__ vs __init__",
+    "companyPattern": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "question": "What is the key difference between __new__ and __init__ in Python OOP?",
+    "options": [
+      "__init__ creates the object and returns it; __new__ initializes attributes",
+      "__new__ is the actual static creator method that returns a new instance; __init__ receives that instance (self) to initialize attributes",
+      "__new__ is called after __init__",
+      "There is no difference"
+    ],
+    "answer": 1,
+    "explanation": "__new__ is the actual constructor method responsible for instantiating and returning a new object instance. __init__ is the initializer called with self to set up instance attributes."
+  },
+  {
+    "id": 170,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Self Parameter",
+    "companyPattern": [
+      "Cognizant",
+      "Accenture",
+      "Capgemini"
+    ],
+    "question": "Why must instance methods in Python explicitly declare self as their first parameter?",
+    "options": [
+      "self is a reserved CPython language keyword",
+      "self represents the binding reference to the specific instance invoking the method",
+      "Because Python does not support pointers",
+      "To make methods public"
+    ],
+    "answer": 1,
+    "explanation": "Python passes the calling object instance automatically as the first argument when an instance method is called. self is the conventional parameter name for this reference."
+  },
+  {
+    "id": 171,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "MRO & C3 Linearization",
+    "companyPattern": [
+      "Meta",
+      "Netflix",
+      "Google"
+    ],
+    "question": "In Python multiple inheritance, what algorithm determines the Method Resolution Order (MRO)?",
+    "options": [
+      "Depth-First Search (DFS)",
+      "Breadth-First Search (BFS)",
+      "C3 Linearization Algorithm",
+      "Dijkstra's Shortest Path"
+    ],
+    "answer": 2,
+    "explanation": "Python 2.3+ uses the C3 Linearization Algorithm to compute Method Resolution Order (MRO), guaranteeing monotonic class precedence."
+  },
+  {
+    "id": 172,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Name Mangling",
+    "companyPattern": [
+      "Adobe",
+      "Goldman Sachs",
+      "Amazon"
+    ],
+    "question": "How does Python perform Name Mangling for private attributes declared with double leading underscores (e.g., __secret) inside class Vault?",
+    "options": [
+      "It encrypts the variable in memory",
+      "It renames __secret internally to _Vault__secret to prevent accidental overriding by subclasses",
+      "It throws an AttributeError if accessed anywhere",
+      "It converts the attribute to a read-only tuple"
+    ],
+    "answer": 1,
+    "explanation": "Python mangles private identifiers containing at least two leading underscores by prefixing them with _ClassName. __secret inside Vault becomes _Vault__secret."
+  },
+  {
+    "id": 173,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Class vs Instance Variables",
+    "companyPattern": [
+      "Infosys",
+      "TCS",
+      "Wipro"
+    ],
+    "question": "What happens when you assign a value to a variable defined at class level via an object instance (obj.class_var = 10) in Python?",
+    "options": [
+      "It updates the class variable for all instances",
+      "It creates a new instance variable on obj that shadows the class variable",
+      "It raises an AttributeError",
+      "It modifies the class definition dynamically"
+    ],
+    "answer": 1,
+    "explanation": "Assigning via an instance (obj.class_var = 10) creates a new instance attribute on obj. The underlying class variable remains untouched for other instances."
+  },
+  {
+    "id": 174,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Classmethod vs Staticmethod",
+    "companyPattern": [
+      "Microsoft",
+      "Oracle",
+      "Cisco"
+    ],
+    "question": "What is the difference between @classmethod and @staticmethod decorators in Python?",
+    "options": [
+      "@classmethod receives the class (cls) as implicit first argument; @staticmethod receives no implicit first argument",
+      "@staticmethod receives self; @classmethod receives nothing",
+      "@classmethod cannot access class variables",
+      "@staticmethod can only be called from instances"
+    ],
+    "answer": 0,
+    "explanation": "@classmethod passes the class object (cls) automatically as first parameter. @staticmethod acts like an un-bound plain function scoped inside the class namespace."
+  },
+  {
+    "id": 175,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Property Decorator",
+    "companyPattern": [
+      "ServiceNow",
+      "Flipkart",
+      "PayPal"
+    ],
+    "question": "What is the primary use of the @property decorator in Python OOP?",
+    "options": [
+      "To make a class immutable",
+      "To define getter/setter methods that allow accessing methods using simple attribute dot notation (obj.attr)",
+      "To register properties in a database",
+      "To make variables thread-safe"
+    ],
+    "answer": 1,
+    "explanation": "The @property decorator converts a class method into a read-only getter attribute, allowing users to access obj.temperature instead of obj.get_temperature()."
+  },
+  {
+    "id": 176,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Duck Typing",
+    "companyPattern": [
+      "Google",
+      "Uber",
+      "Amazon"
+    ],
+    "question": "What concept in Python OOP is summarized by 'If it walks like a duck and quacks like a duck, it's a duck'?",
+    "options": [
+      "Explicit Interface Inheritance",
+      "Duck Typing (dynamic typing where an object's suitability is determined by presence of methods/attributes, not inheritance)",
+      "Abstract Type Casting",
+      "Metaclass Enforcement"
+    ],
+    "answer": 1,
+    "explanation": "Duck Typing prioritizes an object's behavior (methods and attributes) over its explicit class inheritance hierarchy."
+  },
+  {
+    "id": 177,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Dunder Methods __str__ vs __repr__",
+    "companyPattern": [
+      "TCS",
+      "Accenture",
+      "Cognizant"
+    ],
+    "question": "What is the functional difference between __str__ and __repr__ in Python?",
+    "options": [
+      "__str__ is for developer debugging; __repr__ is for end users",
+      "__str__ returns an informal user-friendly string; __repr__ returns an unambiguous representation (ideally valid Python code) for debugging",
+      "__repr__ is called by print(); __str__ by repr()",
+      "They are identical"
+    ],
+    "answer": 1,
+    "explanation": "__str__ targets human readability (called by str() and print()). __repr__ targets developer debugging and explicit representation."
+  },
+  {
+    "id": 178,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Output Prediction Class Variables",
+    "companyPattern": [
+      "TCS",
+      "Infosys",
+      "Wipro"
+    ],
+    "question": "Given class Count { num = 0 }; instantiating c1, c2, c3 where __init__ does Count.num += 1. What is printed by print(c1.num, Count.num)?",
+    "options": [
+      "1 3",
+      "3 3",
+      "1 1",
+      "0 3"
+    ],
+    "answer": 1,
+    "explanation": "num is a class variable shared across all instances. Instantiating c1, c2, c3 increments Count.num three times to 3. c1.num resolves to Count.num, printing '3 3'."
+  },
+  {
+    "id": 179,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Output Prediction Mutable Default",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft",
+      "Python Technical"
+    ],
+    "question": "In def __init__(self, name, marks=[]): self.marks = marks. s1 = Student('A'); s1.add(90); s2 = Student('B'). What is s2.marks?",
+    "options": [
+      "[]",
+      "[90]",
+      "None",
+      "AttributeError"
+    ],
+    "answer": 1,
+    "explanation": "Mutable default arguments (marks=[]) in Python functions/methods are evaluated once at definition time, NOT per call! s1 and s2 share the exact same default list object, so s2.marks prints [90]."
+  },
+  {
+    "id": 180,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Output Prediction Super Diamond MRO",
+    "companyPattern": [
+      "Google",
+      "Meta",
+      "Adobe"
+    ],
+    "question": "In class D(B, C) where B and C inherit from A and call super().show(), what is the execution order for d = D(); d.show()?",
+    "options": [
+      "DBCA",
+      "DBAC",
+      "DCBA",
+      "DBA"
+    ],
+    "answer": 0,
+    "explanation": "Python's MRO for D(B, C) is [D, B, C, A, object]. super() delegates calls down the MRO chain: D -> B -> C -> A. Output: 'DBCA'."
+  },
+  {
+    "id": 181,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Output Prediction Mangled Access",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Qualcomm",
+      "Nvidia"
+    ],
+    "question": "Given class BankAccount: def __init__(self, val): self.__balance = val. What happens when printing acc.__balance?",
+    "options": [
+      "1000",
+      "AttributeError",
+      "None",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "Double underscores trigger name mangling. Attribute __balance is mangled to _BankAccount__balance. Accessing acc.__balance directly raises AttributeError."
+  },
+  {
+    "id": 182,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Abstract Base Classes (abc)",
+    "companyPattern": [
+      "Infosys",
+      "Deloitte"
+    ],
+    "question": "How do you define an Abstract Class in Python?",
+    "options": [
+      "By inheriting from abc.ABC and annotating methods with @abstractmethod",
+      "Using the abstract class keyword",
+      "By raising NotImplementedError in __init__",
+      "By setting __abstract__ = True"
+    ],
+    "answer": 0,
+    "explanation": "Python provides the abc module. An abstract class inherits from abc.ABC and marks abstract methods using the @abstractmethod decorator."
+  },
+  {
+    "id": 183,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Slots Magic (__slots__)",
+    "companyPattern": [
+      "Meta",
+      "Amazon"
+    ],
+    "question": "What is the primary memory optimization purpose of __slots__ in Python classes?",
+    "options": [
+      "To restrict inheritance",
+      "To replace the dynamic __dict__ dictionary with a fixed array of attributes, drastically saving memory for millions of instances",
+      "To make methods static",
+      "To speed up module imports"
+    ],
+    "answer": 1,
+    "explanation": "By defining __slots__ = ('name', 'age'), Python prevents the creation of an instance __dict__, reducing memory footprint per object."
+  },
+  {
+    "id": 184,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Dataclasses Python 3.7+",
+    "companyPattern": [
+      "Microsoft",
+      "Oracle"
+    ],
+    "question": "What decorator was added in Python 3.7 (from dataclasses import dataclass) to automate __init__, __repr__, and __eq__ boilerplate code?",
+    "options": [
+      "@dataclass",
+      "@struct",
+      "@record",
+      "@model"
+    ],
+    "answer": 0,
+    "explanation": "The @dataclass decorator automatically generates special boilerplate methods such as __init__(), __repr__(), and __eq__() based on class type annotations."
+  },
+  {
+    "id": 185,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Operator Overloading Dunder",
+    "companyPattern": [
+      "TCS",
+      "Accenture"
+    ],
+    "question": "Which magic method must be implemented to overload the addition operator (+) for custom class objects in Python?",
+    "options": [
+      "__add__(self, other)",
+      "__plus__(self, other)",
+      "__concat__(self, other)",
+      "__sum__(self, other)"
+    ],
+    "answer": 0,
+    "explanation": "Implementing __add__(self, other) allows custom class objects to define behavior when operated on with the + arithmetic operator."
+  },
+  {
+    "id": 186,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Callable Objects (__call__)",
+    "companyPattern": [
+      "Cognizant",
+      "Wipro"
+    ],
+    "question": "What does implementing the __call__ method allow an instance of a Python class to do?",
+    "options": [
+      "Be deleted by garbage collector",
+      "Be invoked directly like a function (obj())",
+      "Be converted to a dictionary",
+      "Be executed inside a thread"
+    ],
+    "answer": 1,
+    "explanation": "Implementing __call__(self, *args, **kwargs) makes an instance 'callable', allowing it to be invoked with parentheses like a regular function."
+  },
+  {
+    "id": 187,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Context Managers (__enter__ and __exit__)",
+    "companyPattern": [
+      "Google",
+      "ServiceNow"
+    ],
+    "question": "Which two magic methods must a class implement to support Python's with statement context management protocol?",
+    "options": [
+      "__open__ and __close__",
+      "__enter__ and __exit__",
+      "__start__ and __stop__",
+      "__init__ and __del__"
+    ],
+    "answer": 1,
+    "explanation": "The context manager protocol requires __enter__(self) and __exit__(self, exc_type, exc_val, exc_tb)."
+  },
+  {
+    "id": 188,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Mixins in Python",
+    "companyPattern": [
+      "Flipkart",
+      "PayPal"
+    ],
+    "question": "What is a Mixin class in Python OOP design?",
+    "options": [
+      "A class that holds global main functions",
+      "A small, focused parent class designed to provide optional reusable functionality to subclasses via multiple inheritance, without being instantiated standalone",
+      "A class that mixes C and Python code",
+      "An abstract class with no methods"
+    ],
+    "answer": 1,
+    "explanation": "Mixins are specialized classes that offer discrete bundle of methods meant to be inherited alongside a primary base class."
+  },
+  {
+    "id": 189,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Metaclasses Basics",
+    "companyPattern": [
+      "Nvidia",
+      "Uber"
+    ],
+    "question": "What is a Metaclass in Python?",
+    "options": [
+      "A subclass of object",
+      "A class whose instances are classes themselves (a 'class of a class', typically inheriting from type)",
+      "A class that generates C code",
+      "A decorator for functions"
+    ],
+    "answer": 1,
+    "explanation": "In Python, classes are themselves instances of metaclasses. The default metaclass is type. Metaclasses allow intercepting and customizing class creation behavior."
+  },
+  {
+    "id": 190,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Iterators Protocol (__iter__ and __next__)",
+    "companyPattern": [
+      "Capgemini",
+      "IBM"
+    ],
+    "question": "What two magic methods make a Python object an Iterator that can be used in a for loop?",
+    "options": [
+      "__iter__ and __next__",
+      "__start__ and __loop__",
+      "__get__ and __set__",
+      "__len__ and __getitem__"
+    ],
+    "answer": 0,
+    "explanation": "The Iterator protocol requires __iter__() and __next__()."
+  },
+  {
+    "id": 191,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Polymorphism via Duck Typing",
+    "companyPattern": [
+      "Tech Mahindra",
+      "Infosys"
+    ],
+    "question": "Does Python require abstract interfaces or explicit base inheritance to achieve runtime polymorphism?",
+    "options": [
+      "Yes, explicit interface declarations are mandatory",
+      "No, Python relies on Duck Typing; as long as objects expose required method names, polymorphic calls succeed",
+      "Yes, using C extensions",
+      "Only if marked static"
+    ],
+    "answer": 1,
+    "explanation": "Python is dynamically typed and leverages Duck Typing for polymorphism. Methods are resolved by name at runtime."
+  },
+  {
+    "id": 192,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Isinstance vs Type in Python",
+    "companyPattern": [
+      "Wipro",
+      "HCL"
+    ],
+    "question": "Why is isinstance(obj, Base) preferred over type(obj) == Base for checking object types in Python?",
+    "options": [
+      "isinstance is 10x faster",
+      "isinstance accounts for class inheritance (returns True for derived instances), whereas direct type() comparison fails for subclasses",
+      "type() is deprecated",
+      "isinstance works on C code only"
+    ],
+    "answer": 1,
+    "explanation": "isinstance(obj, Class) returns True if obj is an instance of Class OR any subclass derived from Class, making it inheritance-aware."
+  },
+  {
+    "id": 193,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Super() built-in Python 3",
+    "companyPattern": [
+      "TCS",
+      "Deloitte"
+    ],
+    "question": "In Python 3, how do you invoke the base class constructor from inside a derived class __init__ method?",
+    "options": [
+      "super().__init__()",
+      "Parent.__init__()",
+      "this.super()",
+      "base().__init__()"
+    ],
+    "answer": 0,
+    "explanation": "Python 3 simplifies super() calls: inside a method, calling super().__init__() automatically resolves the correct MRO base class and passes self implicitly."
+  },
+  {
+    "id": 194,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Single Leading Underscore",
+    "companyPattern": [
+      "Cognizant",
+      "LTIMindtree"
+    ],
+    "question": "What does a single leading underscore in a variable name (e.g. _internal_var) signify in Python?",
+    "options": [
+      "It is strictly enforced by CPython compiler as private",
+      "It is a naming convention indicating that the variable/method is intended for internal use only",
+      "It deletes the variable automatically",
+      "It makes the variable thread-local"
+    ],
+    "answer": 1,
+    "explanation": "A single leading underscore _var is a strong PEP 8 convention signaling 'internal implementation detail'."
+  },
+  {
+    "id": 195,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Single Trailing Underscore",
+    "companyPattern": [
+      "Accenture",
+      "Infosys"
+    ],
+    "question": "Why would a Python programmer append a single trailing underscore to a variable name (e.g., class_)?",
+    "options": [
+      "To make it private",
+      "To avoid naming conflicts with Python reserved keywords (e.g. class, def, in)",
+      "To convert it to float",
+      "To store it in slots"
+    ],
+    "answer": 1,
+    "explanation": "PEP 8 recommends appending a single trailing underscore to avoid collisions with Python built-in keywords."
+  },
+  {
+    "id": 196,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Deleting Object Attributes",
+    "companyPattern": [
+      "IBM",
+      "Wipro"
+    ],
+    "question": "Which statement deletes an attribute age from an instance person in Python?",
+    "options": [
+      "del person.age",
+      "remove person.age",
+      "person.age = None",
+      "delete(person.age)"
+    ],
+    "answer": 0,
+    "explanation": "The del statement (del person.age) removes the attribute binding from the instance dictionary person.__dict__."
+  },
+  {
+    "id": 197,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Copy module shallow vs deep",
+    "companyPattern": [
+      "Goldman Sachs",
+      "Amazon"
+    ],
+    "question": "Which module function in Python creates a deep copy of a nested object graph containing custom class instances?",
+    "options": [
+      "copy.copy()",
+      "copy.deepcopy()",
+      "clone()",
+      "object.copy()"
+    ],
+    "answer": 1,
+    "explanation": "copy.deepcopy() recursively copies compound objects and all nested object references, producing an independent object hierarchy."
+  },
+  {
+    "id": 198,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Class Decorators",
+    "companyPattern": [
+      "Microsoft",
+      "Oracle"
+    ],
+    "question": "What is a Class Decorator in Python?",
+    "options": [
+      "A decorator applied to class definitions (@decorator class MyClass:) that receives the class object and can modify or wrap it",
+      "A method decorator",
+      "A decorator for variables",
+      "A CSS style for classes"
+    ],
+    "answer": 0,
+    "explanation": "A Class Decorator takes a class object as its argument, inspects or modifies its structure, and returns the modified or wrapped class."
+  },
+  {
+    "id": 199,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Encapsulation via Getters/Setters",
+    "companyPattern": [
+      "JPMorgan",
+      "ServiceNow"
+    ],
+    "question": "In Python, what is the idiomatic way to add validation to an existing attribute age without altering external client access code (obj.age)?",
+    "options": [
+      "Refactor age to get_age() and update all callers",
+      "Convert age into a @property with a @age.setter method containing validation logic",
+      "Make age static",
+      "Use C extensions"
+    ],
+    "answer": 1,
+    "explanation": "Python's @property decorator allows wrapping attribute access with getter/setter methods transparently."
+  },
+  {
+    "id": 200,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Subclassing Built-in Types",
+    "companyPattern": [
+      "Google",
+      "Meta"
+    ],
+    "question": "When inheriting from built-in Python types like dict or list, why is inheriting from collections.UserDict or collections.UserList often preferred?",
+    "options": [
+      "Built-in C-implemented methods of dict often bypass overridden methods in Python subclasses",
+      "UserDict is faster",
+      "dict does not support inheritance",
+      "UserDict supports static typing"
+    ],
+    "answer": 0,
+    "explanation": "Built-in types implemented in C often skip calls to overridden methods in subclasses when invoked by internal C routines. collections.UserDict is written in pure Python."
+  },
+  {
+    "id": 201,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "String representation Dunder trap",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "If a class defines __repr__ but DOES NOT define __str__, what happens when str(obj) or print(obj) is called?",
+    "options": [
+      "Python falls back to executing __repr__",
+      "Raises AttributeError",
+      "Prints memory address",
+      "Returns empty string"
+    ],
+    "answer": 0,
+    "explanation": "If __str__ is omitted, Python automatically falls back to calling __repr__ to generate string output for str() and print()."
+  },
+  {
+    "id": 202,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Comparison Dunder Methods",
+    "companyPattern": [
+      "Cognizant",
+      "Capgemini"
+    ],
+    "question": "Which magic method must be implemented to support the less-than operator (<) for custom objects in Python?",
+    "options": [
+      "__lt__(self, other)",
+      "__less__(self, other)",
+      "__cmp__(self, other)",
+      "__min__(self, other)"
+    ],
+    "answer": 0,
+    "explanation": "__lt__(self, other) implements the < comparison operator."
+  },
+  {
+    "id": 203,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Dict representation of instance",
+    "companyPattern": [
+      "Wipro",
+      "Tech Mahindra"
+    ],
+    "question": "What attribute of a Python class instance holds its user-defined dynamic instance variables in dictionary format?",
+    "options": [
+      "__dict__",
+      "__vars__",
+      "__slots__",
+      "__map__"
+    ],
+    "answer": 0,
+    "explanation": "An instance's user-defined attributes are stored in its writable dictionary attribute __dict__."
+  },
+  {
+    "id": 204,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Callable object state preservation",
+    "companyPattern": [
+      "Adobe",
+      "ServiceNow"
+    ],
+    "question": "What advantage does a callable object (class implementing __call__) have over a standard function in Python?",
+    "options": [
+      "It can maintain state across invocations within instance attributes",
+      "It executes faster",
+      "It can bypass Python GIL",
+      "It supports static compilation"
+    ],
+    "answer": 0,
+    "explanation": "Unlike plain functions, callable class instances maintain state across calls within self attributes."
+  },
+  {
+    "id": 205,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "SOLID - Single Responsibility Principle",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "question": "What does the Single Responsibility Principle (SRP) dictate in software architecture?",
+    "options": [
+      "A class should have one, and only one, reason to change (single responsibility)",
+      "A class should have only one method",
+      "A class should inherit from only one parent",
+      "A class should be instantiated once"
+    ],
+    "answer": 0,
+    "explanation": "SRP states that a class should be focused on a single logical responsibility."
+  },
+  {
+    "id": 206,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "SOLID - Open/Closed Principle",
+    "companyPattern": [
+      "Google",
+      "Oracle"
+    ],
+    "question": "According to the Open/Closed Principle (OCP), software entities should be:",
+    "options": [
+      "Open for extension, but closed for modification",
+      "Open for modification, but closed for extension",
+      "Open for public access, but closed for private access",
+      "Open for reading, closed for writing"
+    ],
+    "answer": 0,
+    "explanation": "OCP dictates that classes should be designed so that new behavior can be added via extension without modifying existing source code."
+  },
+  {
+    "id": 207,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "SOLID - Liskov Substitution Principle",
+    "companyPattern": [
+      "Meta",
+      "Adobe"
+    ],
+    "question": "What is the core requirement of the Liskov Substitution Principle (LSP)?",
+    "options": [
+      "Objects of a superclass should be replaceable with objects of a subclass without affecting program correctness",
+      "Derived classes must always override all base methods",
+      "Base class pointers must be cast using reinterpret_cast",
+      "Subclasses must add new public methods"
+    ],
+    "answer": 0,
+    "explanation": "LSP requires that derived types must be completely substitutable for their base types."
+  },
+  {
+    "id": 208,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "SOLID - Interface Segregation Principle",
+    "companyPattern": [
+      "ServiceNow",
+      "Flipkart"
+    ],
+    "question": "What does the Interface Segregation Principle (ISP) advocate?",
+    "options": [
+      "Clients should not be forced to depend upon interfaces/methods they do not use (prefer small, specific interfaces)",
+      "All classes must implement at least 5 interfaces",
+      "Interfaces must inherit from Object",
+      "Interfaces should contain large monolithic method groups"
+    ],
+    "answer": 0,
+    "explanation": "ISP states that large, bloated interfaces should be split into smaller, specific interfaces."
+  },
+  {
+    "id": 209,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "SOLID - Dependency Inversion Principle",
+    "companyPattern": [
+      "Goldman Sachs",
+      "JPMorgan"
+    ],
+    "question": "What does the Dependency Inversion Principle (DIP) state?",
+    "options": [
+      "High-level modules should not depend on low-level modules; both should depend on abstractions (interfaces)",
+      "Low-level modules should control high-level modules",
+      "Classes should depend directly on concrete implementations",
+      "Functions should invert control flow using goto"
+    ],
+    "answer": 0,
+    "explanation": "DIP decouples high-level policy code from low-level execution details by introducing abstract interfaces."
+  },
+  {
+    "id": 210,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Design Patterns - Singleton",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "Which Design Pattern ensures a class has only ONE instance and provides a global point of access to it?",
+    "options": [
+      "Factory Pattern",
+      "Singleton Pattern",
+      "Observer Pattern",
+      "Builder Pattern"
+    ],
+    "answer": 1,
+    "explanation": "The Singleton pattern restricts class instantiation to a single instance throughout the application lifecycle."
+  },
+  {
+    "id": 211,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Design Patterns - Factory",
+    "companyPattern": [
+      "Amazon",
+      "Wipro"
+    ],
+    "question": "Which Design Pattern defines an interface for creating objects, but lets subclasses decide which class to instantiate?",
+    "options": [
+      "Singleton Pattern",
+      "Adapter Pattern",
+      "Factory Method Pattern",
+      "Observer Pattern"
+    ],
+    "answer": 2,
+    "explanation": "The Factory Method pattern encapsulates object creation logic, allowing caller code to request objects through a common interface."
+  },
+  {
+    "id": 212,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Design Patterns - Observer",
+    "companyPattern": [
+      "Adobe",
+      "Microsoft"
+    ],
+    "question": "Which Design Pattern defines a one-to-many dependency where changing one object's state automatically notifies and updates dependents?",
+    "options": [
+      "Observer Pattern",
+      "Strategy Pattern",
+      "Decorator Pattern",
+      "Facade Pattern"
+    ],
+    "answer": 0,
+    "explanation": "The Observer pattern maintains a list of dependent observers and automatically notifies them of state changes."
+  },
+  {
+    "id": 213,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Design Patterns - Strategy",
+    "companyPattern": [
+      "Google",
+      "Nvidia"
+    ],
+    "question": "Which Design Pattern enables selecting an algorithm's behavior dynamically at runtime by encapsulating algorithms into interchangeable strategy classes?",
+    "options": [
+      "Command Pattern",
+      "Strategy Pattern",
+      "State Pattern",
+      "Template Method Pattern"
+    ],
+    "answer": 1,
+    "explanation": "The Strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime."
+  },
+  {
+    "id": 214,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Design Patterns - Adapter",
+    "companyPattern": [
+      "Oracle",
+      "Capgemini"
+    ],
+    "question": "Which Design Pattern acts as a wrapper to convert the interface of a class into another interface expected by clients?",
+    "options": [
+      "Bridge Pattern",
+      "Adapter Pattern",
+      "Proxy Pattern",
+      "Composite Pattern"
+    ],
+    "answer": 1,
+    "explanation": "The Adapter pattern converts incompatible interfaces of existing classes into a compatible interface expected by caller applications."
+  },
+  {
+    "id": 215,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Descriptor Protocol",
+    "companyPattern": [
+      "Amazon",
+      "Google"
+    ],
+    "question": "What methods define Python's Descriptor protocol for managing attribute access on other objects?",
+    "options": [
+      "`__get__`, `__set__`, and `__delete__`",
+      "`__read__` and `__write__`",
+      "`__load__` and `__store__`",
+      "`__enter__` and `__exit__`"
+    ],
+    "answer": 0,
+    "explanation": "Descriptors are objects that define binding behavior via `__get__()`, `__set__()`, or `__delete__()` methods, powering properties, classmethods, and staticmethods."
+  },
+  {
+    "id": 216,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python __getattr__ vs __getattribute__",
+    "companyPattern": [
+      "Meta",
+      "Microsoft"
+    ],
+    "question": "What is the key difference between `__getattr__` and `__getattribute__` in Python?",
+    "options": [
+      "`__getattr__` is called for ALL attribute accesses; `__getattribute__` is called only when attribute is missing",
+      "`__getattribute__` is called unconditionally for every attribute lookup; `__getattr__` is called ONLY when the attribute is NOT found in the instance/class dict",
+      "They are identical",
+      "`__getattr__` is static"
+    ],
+    "answer": 1,
+    "explanation": "`__getattribute__` intercepts every single attribute lookup. `__getattr__` acts as a fallback handler invoked only after attribute lookup fails."
+  },
+  {
+    "id": 217,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python __init_subclass__ Hook",
+    "companyPattern": [
+      "Python Core",
+      "Uber"
+    ],
+    "question": "What feature introduced in Python 3.6 (`def __init_subclass__(cls, **kwargs):`) provides a clean alternative to metaclasses for customizing subclass creation?",
+    "options": [
+      "`__init_subclass__` hook",
+      "`__subclass__` method",
+      "`@subclass_decorator`",
+      "`__new_class__`"
+    ],
+    "answer": 0,
+    "explanation": "`__init_subclass__` is called whenever the containing class is subclassed, allowing parent classes to configure or register derived classes without writing custom metaclasses."
+  },
+  {
+    "id": 218,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Dataclass Frozen",
+    "companyPattern": [
+      "ServiceNow",
+      "PayPal"
+    ],
+    "question": "How can you make a Python `@dataclass` immutable (read-only) so that attempting to modify fields raises a FrozenInstanceError?",
+    "options": [
+      "Pass `frozen=True` to the decorator `@dataclass(frozen=True)`",
+      "Set `immutable=True`",
+      "Use `const` annotations",
+      "Inherit from `tuple`"
+    ],
+    "answer": 0,
+    "explanation": "`@dataclass(frozen=True)` makes generated dataclass instances immutable by generating `__setattr__` and `__delattr__` methods that raise `FrozenInstanceError` if mutated."
+  },
+  {
+    "id": 219,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Container Protocol __getitem__",
+    "companyPattern": [
+      "Flipkart",
+      "Oracle"
+    ],
+    "question": "What dunder method enables custom Python class instances to support indexing or key lookup (`obj[key]`)?",
+    "options": [
+      "`__getitem__(self, key)`",
+      "`__index__(self, key)`",
+      "`__get__(self, key)`",
+      "`__lookup__(self, key)`"
+    ],
+    "answer": 0,
+    "explanation": "Implementing `__getitem__(self, key)` allows class instances to support dictionary-style key access or list-style indexing."
+  },
+  {
+    "id": 220,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Class Factory Pattern",
+    "companyPattern": [
+      "Goldman Sachs",
+      "IBM"
+    ],
+    "question": "In Python, how can `@classmethod` be used as an Alternative Constructor (Factory Pattern)?",
+    "options": [
+      "By returning a newly instantiated class object `return cls(data)` parsed from alternative data formats (e.g. `from_json`, `from_csv`)",
+      "By modifying instance dict",
+      "By deleting static variables",
+      "By calling `super().__new__()`"
+    ],
+    "answer": 0,
+    "explanation": "Class methods frequently serve as alternative constructor factories (e.g., `datetime.fromtimestamp()`), parsing different data formats and returning `cls(...)` instances."
+  },
+  {
+    "id": 221,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Multiple Inheritance MRO Method Overriding",
+    "companyPattern": [
+      "Qualcomm",
+      "Nvidia"
+    ],
+    "question": "If class `C(A, B)` inherits from both `A` and `B` which both define `process()`, whose `process()` is invoked when calling `c.process()`?",
+    "options": [
+      "`A.process()` because `A` comes first in `C(A, B)` MRO",
+      "`B.process()`",
+      "Throws MRO exception",
+      "Executes both concurrently"
+    ],
+    "answer": 0,
+    "explanation": "Python resolves attribute lookups following the left-to-right MRO sequence defined in class header `C(A, B)`. Since `A` precedes `B`, `A.process()` is called."
+  },
+  {
+    "id": 222,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Shallow Copy List Trap",
+    "companyPattern": [
+      "Infosys",
+      "TCS"
+    ],
+    "question": "Given `a = [[1, 2], [3, 4]]` and `b = list(a)`. If you execute `b[0][0] = 99`, what happens to `a[0][0]`?",
+    "options": [
+      "`a[0][0]` becomes 99 because `list(a)` performs a shallow copy of nested references",
+      "`a[0][0]` remains 1",
+      "Throws ValueError",
+      "`b[0][0]` raises IndexError"
+    ],
+    "answer": 0,
+    "explanation": "Shallow copy creates a new top-level list `b`, but elements inside `b` are references to the exact same inner lists in `a`. Mutating `b[0][0]` mutates `a[0][0]`."
+  },
+  {
+    "id": 223,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Typing Protocol (PEP 544)",
+    "companyPattern": [
+      "Google",
+      "Dropbox"
+    ],
+    "question": "What feature in Python 3.8 (`typing.Protocol`) enables static type checkers (like Mpy) to verify Structural Subtyping (Duck Typing)?",
+    "options": [
+      "`Protocol` class inheritance",
+      "`@structural` decorator",
+      "`Interface` class",
+      "`@duck_type`"
+    ],
+    "answer": 0,
+    "explanation": "PEP 544 introduced `typing.Protocol` for structural subtyping: a class implicitly satisfies a `Protocol` if it defines matching methods/attributes without explicit inheritance."
+  },
+  {
+    "id": 224,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Metaclass __prepare__ Method",
+    "companyPattern": [
+      "Meta",
+      "Python Core"
+    ],
+    "question": "What special method in a Python Metaclass allows customizing the class namespace dictionary before class body execution?",
+    "options": [
+      "`__prepare__(cls, name, bases)`",
+      "`__init_dict__`",
+      "`__create_namespace__`",
+      "`__dict_factory__`"
+    ],
+    "answer": 0,
+    "explanation": "`__prepare__()` is called by the metaclass before the class body is evaluated, returning a mapping (e.g., `collections.OrderedDict`) used as the class namespace."
+  },
+  {
+    "id": 225,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Hash Dunder Method",
+    "companyPattern": [
+      "Adobe",
+      "ServiceNow"
+    ],
+    "question": "Which magic method must be implemented alongside `__eq__` for a custom class object to be used as a key in Python `dict` or element in `set`?",
+    "options": [
+      "`__hash__(self)`",
+      "`__key__(self)`",
+      "`__id__(self)`",
+      "`__index__(self)`"
+    ],
+    "answer": 0,
+    "explanation": "Objects used as dictionary keys or set elements must be hashable, requiring implementation of `__hash__(self)` and `__eq__(self)`."
+  },
+  {
+    "id": 226,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Weakref Module",
+    "companyPattern": [
+      "Nvidia",
+      "Intel"
+    ],
+    "question": "What is the purpose of `weakref.ref` in Python OOP?",
+    "options": [
+      "To create non-owning references to an object that do not prevent the object from being garbage collected",
+      "To speed up variable access",
+      "To create weak variables",
+      "To disable memory allocation"
+    ],
+    "answer": 0,
+    "explanation": "The `weakref` module allows creating weak references to objects, enabling caching or circular graph structures without keeping objects alive against garbage collection."
+  },
+  {
+    "id": 227,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Contextmanager Decorator",
+    "companyPattern": [
+      "Amazon",
+      "Wipro"
+    ],
+    "question": "What generator decorator from `contextlib` module simplifies creating a context manager without writing a full class with `__enter__` and `__exit__`?",
+    "options": [
+      "`@contextlib.contextmanager`",
+      "`@contextmanager.create`",
+      "`@with_block`",
+      "`@resource_manager`"
+    ],
+    "answer": 0,
+    "explanation": "The `@contextlib.contextmanager` decorator wraps a generator yielding a resource, turning it into a compliant context manager usable with the `with` statement."
+  },
+  {
+    "id": 228,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Python Final Qualifier PEP 591",
+    "companyPattern": [
+      "Microsoft",
+      "Capgemini"
+    ],
+    "question": "In Python 3.8+ typing (`from typing import final`), how do you indicate that a method should NOT be overridden or a class should NOT be subclassed?",
+    "options": [
+      "`@final` decorator",
+      "`@immutable`",
+      "`final class` keyword",
+      "`@no_override`"
+    ],
+    "answer": 0,
+    "explanation": "`@final` decorator (from `typing`) indicates to static type checkers that the decorated class cannot be subclassed or the decorated method cannot be overridden."
+  },
+  {
+    "id": 229,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Dynamic Attribute Setattr",
+    "companyPattern": [
+      "Cognizant",
+      "HCL"
+    ],
+    "question": "Which built-in Python function dynamically sets an attribute value on an object instance given the attribute name as a string?",
+    "options": [
+      "`setattr(object, name, value)`",
+      "`putattr()`",
+      "`object.set(name, value)`",
+      "`update_attr()`"
+    ],
+    "answer": 0,
+    "explanation": "`setattr(obj, 'name', 'Alice')` dynamically creates or updates the attribute named `'name'` on instance `obj`."
+  },
+  {
+    "id": 230,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Python Object Identity vs Equality",
+    "companyPattern": [
+      "TCS",
+      "Accenture"
+    ],
+    "question": "What is the difference between `a == b` and `a is b` in Python OOP?",
+    "options": [
+      "`==` checks value equality (invoking `__eq__`); `is` checks identity (whether both variables point to the exact same memory address)",
+      "`is` checks value; `==` checks identity",
+      "They are identical",
+      "`is` compares strings only"
+    ],
+    "answer": 0,
+    "explanation": "`==` tests structural/value equality by invoking `__eq__`. `is` tests object identity (`id(a) == id(b)`)."
+  },
+  {
+    "id": 231,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Python Exception Hierarchy Base",
+    "companyPattern": [
+      "Wipro",
+      "Infosys"
+    ],
+    "question": "What is the top-most base class for all built-in exceptions in Python?",
+    "options": [
+      "`BaseException`",
+      "`Exception`",
+      "`Throwable`",
+      "`Error`"
+    ],
+    "answer": 0,
+    "explanation": "`BaseException` is the common base class of all exceptions. User-defined exceptions should inherit from `Exception` (which derives from `BaseException`)."
+  },
+  {
+    "id": 232,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Metaclass Call Trap",
+    "companyPattern": [
+      "Google",
+      "Meta"
+    ],
+    "question": "When an object instance is created via `obj = MyClass()`, which metaclass method is called to control the creation and initialization of `obj`?",
+    "options": [
+      "`MetaClass.__call__()`",
+      "`MetaClass.__init__()`",
+      "`MetaClass.__new__()`",
+      "`MetaClass.__exec__()`"
+    ],
+    "answer": 0,
+    "explanation": "Invoking `MyClass()` calls `MetaClass.__call__()`, which in turn delegates to `MyClass.__new__()` and `MyClass.__init__()`."
+  },
+  {
+    "id": 233,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Class Attribute Access Order",
+    "companyPattern": [
+      "Amazon",
+      "ServiceNow"
+    ],
+    "question": "In what order does Python search for an attribute `obj.attr`?",
+    "options": [
+      "1. Data Descriptor on Class, 2. Instance `__dict__`, 3. Non-Data Descriptor / Class attribute, 4. `__getattr__`",
+      "1. Instance `__dict__` first always",
+      "1. Global scope, 2. Class scope",
+      "1. `__getattr__` first"
+    ],
+    "answer": 0,
+    "explanation": "Python's attribute resolution order checks Data Descriptors on the class hierarchy first, then instance `__dict__`, then non-data descriptors and regular class attributes, and finally falls back to `__getattr__`."
+  },
+  {
+    "id": 234,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Dataclass Field Default Factory",
+    "companyPattern": [
+      "Amazon",
+      "Google"
+    ],
+    "question": "In Python `@dataclass`, how do you declare a mutable default list field safely without sharing it across instances?",
+    "options": [
+      "`items: list = field(default_factory=list)`",
+      "`items: list = []`",
+      "`items: list = list()`",
+      "`items: list = mutable([])`"
+    ],
+    "answer": 0,
+    "explanation": "In dataclasses, mutable defaults must be initialized using `field(default_factory=list)` to generate a new list instance per object."
+  },
+  {
+    "id": 235,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Generic Classes",
+    "companyPattern": [
+      "Meta",
+      "Microsoft"
+    ],
+    "question": "How do you create a generic container class in Python using the `typing` module?",
+    "options": [
+      "Inherit from `typing.Generic[T]` after defining `T = TypeVar('T')`",
+      "Use `class Container(Generic):`",
+      "Decorate class with `@generic`",
+      "Generics are not supported in Python"
+    ],
+    "answer": 0,
+    "explanation": "Generic classes in Python inherit from `Generic[T]`, allowing type checkers to validate parameter types across class methods."
+  },
+  {
+    "id": 236,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Hash Consistency Rule",
+    "companyPattern": [
+      "Goldman Sachs",
+      "PayPal"
+    ],
+    "question": "What happens if a custom class overrides `__eq__` but DOES NOT override `__hash__` in Python 3?",
+    "options": [
+      "Python automatically sets `__hash__ = None`, making instances unhashable and unusable as dict keys or set elements",
+      "Python uses the default memory address hash",
+      "Compilation error occurs",
+      "Instances become immutable"
+    ],
+    "answer": 0,
+    "explanation": "In Python 3, overriding `__eq__` without providing `__hash__` automatically sets `__hash__ = None`, marking instances as unhashable to prevent hash corruption in collections."
+  },
+  {
+    "id": 237,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Destructor __del__ Trap",
+    "companyPattern": [
+      "Adobe",
+      "Oracle"
+    ],
+    "question": "Why is relying on `__del__` for resource cleanup discouraged in Python?",
+    "options": [
+      "Execution timing of `__del__` is non-deterministic and circular references may prevent `__del__` from ever being called",
+      "`__del__` causes memory leaks automatically",
+      "`__del__` cannot access self attributes",
+      "`__del__` is deprecated in Python 3"
+    ],
+    "answer": 0,
+    "explanation": "CPython garbage collection guarantees `__del__` execution only when ref count drops to zero; cyclic references and unhandled exceptions during shutdown can prevent `__del__` from running."
+  },
+  {
+    "id": 238,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Property Abstractmethod Combination",
+    "companyPattern": [
+      "Infosys",
+      "TCS"
+    ],
+    "question": "What is the recommended way to declare an abstract property in Python 3.3+?",
+    "options": [
+      "Stack `@property` on top of `@abstractmethod` (`@property\\n@abstractmethod\\ndef name(self): ...`)",
+      "Use `@abstractproperty`",
+      "Decorate with `@abstract_getter`",
+      "Set `property = abstract`"
+    ],
+    "answer": 0,
+    "explanation": "Since Python 3.3, `@abstractproperty` is deprecated. Abstract properties are declared by nesting `@property` above `@abstractmethod`."
+  },
+  {
+    "id": 239,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Cached Property Decorator",
+    "companyPattern": [
+      "ServiceNow",
+      "Atlassian"
+    ],
+    "question": "What decorator from `functools` (`from functools import cached_property`) caches the result of an expensive property computation on first access?",
+    "options": [
+      "`@cached_property`",
+      "`@memoize_property`",
+      "`@lazy_attribute`",
+      "`@cache_getter`"
+    ],
+    "answer": 0,
+    "explanation": "`@cached_property` computes the property once, stores the result in the instance's `__dict__`, and serves subsequent reads directly without re-executing the method."
+  },
+  {
+    "id": 240,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Method Overloading singledispatchmethod",
+    "companyPattern": [
+      "Google",
+      "Nvidia"
+    ],
+    "question": "How can single-dispatch method overloading based on the first argument's type be achieved in Python 3.8+?",
+    "options": [
+      "Using `@functools.singledispatchmethod` decorator",
+      "Using `def method(self, arg: overload):`",
+      "Using C extensions",
+      "Python does not support single dispatch"
+    ],
+    "answer": 0,
+    "explanation": "`@functools.singledispatchmethod` transforms a class method into a single-dispatch generic function, routing execution to typed implementations based on the first non-self argument."
+  },
+  {
+    "id": 241,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Two-Argument Super Syntax",
+    "companyPattern": [
+      "Capgemini",
+      "Wipro"
+    ],
+    "question": "What is equivalent to `super().method()` using the explicit two-argument syntax in Python?",
+    "options": [
+      "`super(CurrentClass, self).method()`",
+      "`super(self, CurrentClass).method()`",
+      "`super(ParentClass, self).method()`",
+      "`super(Object, CurrentClass).method()`"
+    ],
+    "answer": 0,
+    "explanation": "Explicit two-argument `super(CurrentClass, self)` specifies the starting class point in the MRO and the target instance binding."
+  },
+  {
+    "id": 242,
+    "language": "Python",
+    "difficulty": "Easy",
+    "topic": "Python Types SimpleNamespace",
+    "companyPattern": [
+      "Tech Mahindra",
+      "IBM"
+    ],
+    "question": "What class from the `types` module provides a quick, lightweight object container allowing attribute access (`obj.key = val`) without writing a custom class?",
+    "options": [
+      "`types.SimpleNamespace`",
+      "`types.DynamicObject`",
+      "`types.Struct`",
+      "`types.AnonymousClass`"
+    ],
+    "answer": 0,
+    "explanation": "`types.SimpleNamespace` initializes an object where keyword arguments become accessible attributes (`sn = SimpleNamespace(a=1); print(sn.a)`)."
+  },
+  {
+    "id": 243,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python __dir__ Customization",
+    "companyPattern": [
+      "Cognizant",
+      "Deloitte"
+    ],
+    "question": "What does overriding the `__dir__(self)` method in a Python class customize?",
+    "options": [
+      "The list of attribute names returned by `dir(obj)` and interactive shell autocompletion",
+      "The memory directory of the object",
+      "The module search path",
+      "The string representation"
+    ],
+    "answer": 0,
+    "explanation": "Implementing `__dir__(self)` returns a custom sequence of valid attribute names for inspection tools and shell autocompletion."
+  },
+  {
+    "id": 244,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python __format__ Customization",
+    "companyPattern": [
+      "Accenture",
+      "LTIMindtree"
+    ],
+    "question": "Which magic method customizes how an object handles format specifiers in f-strings (`f\"{obj:spec}\"`)?",
+    "options": [
+      "`__format__(self, format_spec)`",
+      "`__fstring__(self)`",
+      "`__str_format__(self)`",
+      "`__print__(self)`"
+    ],
+    "answer": 0,
+    "explanation": "Implementing `__format__(self, format_spec)` defines custom formatting logic when the object is used inside f-strings or `format()` calls."
+  },
+  {
+    "id": 245,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Slicing Protocol __getitem__",
+    "companyPattern": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "question": "When an object is accessed with slice notation (`obj[1:5:2]`), what type of object is passed to `__getitem__(self, key)`?",
+    "options": [
+      "A `slice` object (`slice(1, 5, 2)`)",
+      "A tuple `(1, 5, 2)`",
+      "A list `[1, 2, 3, 4]`",
+      "A string `'1:5:2'`"
+    ],
+    "answer": 0,
+    "explanation": "When indexing with slice syntax `[start:stop:step]`, Python constructs and passes a `slice` object containing `start`, `stop`, and `step` attributes into `__getitem__`."
+  },
+  {
+    "id": 246,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Classmethod Descriptor Binding",
+    "companyPattern": [
+      "Meta",
+      "Python Technical"
+    ],
+    "question": "Under the hood, how does `@classmethod` bind a method when accessed via an instance `obj.cm()`?",
+    "options": [
+      "It implements the descriptor `__get__(obj, cls)` returning a bound method that passes `type(obj)` as the first argument (`cls`)",
+      "It modifies the instance dictionary `__dict__`",
+      "It converts the method to C code",
+      "It copies the function pointer"
+    ],
+    "answer": 0,
+    "explanation": "`@classmethod` is a descriptor whose `__get__` method ignores the instance `obj` and binds the function to the class `type(obj)`."
+  },
+  {
+    "id": 247,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Composition Delegation via __getattr__",
+    "companyPattern": [
+      "Uber",
+      "Flipkart"
+    ],
+    "question": "How can a wrapper class automatically delegate unhandled method calls to an internal composed object `self._delegate`?",
+    "options": [
+      "By implementing `__getattr__(self, name)`: `return getattr(self._delegate, name)`",
+      "By inheriting from `self._delegate`",
+      "By marking class as `@delegate`",
+      "By using `super().__getattr__()`"
+    ],
+    "answer": 0,
+    "explanation": "If an attribute is not found on the wrapper instance, Python calls `__getattr__(self, name)`. Forwarding this to `getattr(self._delegate, name)` implements dynamic delegation."
+  },
+  {
+    "id": 248,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python __slots__ Inheritance Trap",
+    "companyPattern": [
+      "Qualcomm",
+      "Nvidia"
+    ],
+    "question": "If derived class `Child` inherits from parent class `Parent` which defines `__slots__ = ('a',)` but `Child` does NOT define `__slots__`, can `Child` instances have dynamic attributes?",
+    "options": [
+      "Yes, derived classes without `__slots__` automatically create a dynamic `__dict__` for instance attributes",
+      "No, `Child` inherits `__slots__` restriction",
+      "Compilation error",
+      "Child instances cannot be instantiated"
+    ],
+    "answer": 0,
+    "explanation": "If a derived class does not define `__slots__`, it automatically gains a `__dict__` attribute, allowing dynamic instance variable assignment despite the parent's `__slots__`."
+  },
+  {
+    "id": 249,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Functools Total Ordering",
+    "companyPattern": [
+      "JPMorgan",
+      "ServiceNow"
+    ],
+    "question": "What decorator from `functools` automatically generates all comparison methods (`__le__`, `__gt__`, `__ge__`) if a class defines `__eq__` and one comparison method (like `__lt__`)?",
+    "options": [
+      "`@functools.total_ordering`",
+      "`@functools.compare_all`",
+      "`@functools.ordering_builder`",
+      "`@functools.auto_compare`"
+    ],
+    "answer": 0,
+    "explanation": "`@total_ordering` fills in the remaining comparison dunder methods automatically, reducing boilerplate code."
+  },
+  {
+    "id": 250,
+    "language": "Python",
+    "difficulty": "Medium",
+    "topic": "Python Method Hiding Class Attribute Shadowing",
+    "companyPattern": [
+      "TCS",
+      "Infosys"
+    ],
+    "question": "If a class defines a method `def process(self): pass` and an instance assigns `obj.process = 10`, what happens when calling `obj.process()`?",
+    "options": [
+      "`TypeError: 'int' object is not callable` because instance attribute `process` shadows the class method",
+      "Executes class method `process()`",
+      "Resets `obj.process` to method",
+      "Compiles normally"
+    ],
+    "answer": 0,
+    "explanation": "Instance attributes in `obj.__dict__` take precedence over non-data descriptor class methods. Setting `obj.process = 10` hides the method and causes a `TypeError` when calling `obj.process()`."
+  }
+]
