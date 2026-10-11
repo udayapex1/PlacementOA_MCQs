@@ -90,6 +90,51 @@ button { font: inherit; }
 
 .home-note { align-items: center; border-top: 1px solid var(--line); color: var(--muted); display: flex; font-size: .76rem; gap: 10px; margin-top: 44px; padding-top: 22px; }
 .home-note strong { color: var(--ink); font-weight: 600; }
+.cheat-callout { align-items: center; background: linear-gradient(110deg, rgba(200,140,255,.09), rgba(17,26,42,.75)); border: 1px solid rgba(200,140,255,.25); border-radius: var(--radius); display: flex; gap: 18px; margin-top: 48px; padding: 22px 24px; }
+.cheat-callout-mark { align-items: center; background: rgba(200,140,255,.14); border: 1px solid rgba(200,140,255,.35); border-radius: 11px; color: #c88cff; display: flex; flex: 0 0 48px; font-family: 'DM Mono', monospace; font-size: .74rem; height: 48px; justify-content: center; }
+.cheat-callout-copy { flex: 1; }
+.cheat-callout-copy .eyebrow { color: #c88cff; font-size: .6rem; }
+.cheat-callout-copy h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; letter-spacing: -.03em; margin: 5px 0 4px; }
+.cheat-callout-copy p { color: var(--muted); font-size: .78rem; line-height: 1.55; margin: 0; }
+.cheat-callout .button span { color: #c88cff; margin-left: 7px; }
+
+.cheatsheet-page { max-width: 1120px; padding-top: 34px; }
+.cheat-head { align-items: end; display: flex; justify-content: space-between; }
+.cheat-title { align-items: center; display: flex; gap: 12px; margin-top: 19px; }
+.cheat-title h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.55rem, 3vw, 2.35rem); letter-spacing: -.06em; margin: 0; }
+.cheat-intro { color: var(--muted); font-size: .84rem; line-height: 1.65; margin: 17px 0 0; max-width: 650px; }
+.cheat-meta { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .66rem; text-align: right; }
+.cheat-meta strong { color: var(--ink); display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; letter-spacing: -.08em; }
+.cheat-tabs { display: grid; gap: 8px; grid-template-columns: repeat(4, 1fr); margin-top: 38px; }
+.cheat-tab { background: rgba(17,26,42,.65); border: 1px solid var(--line); border-radius: 9px; color: var(--muted); display: flex; flex-direction: column; gap: 5px; padding: 14px 16px; text-decoration: none; transition: border-color .18s, background .18s, transform .18s; }
+.cheat-tab:hover { border-color: color-mix(in srgb, var(--tab-accent) 55%, transparent); transform: translateY(-2px); }
+.cheat-tab span { color: var(--ink); font-size: .78rem; font-weight: 700; }
+.cheat-tab small { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .61rem; }
+.cheat-tab.active { background: color-mix(in srgb, var(--tab-accent) 12%, var(--surface)); border-color: color-mix(in srgb, var(--tab-accent) 65%, transparent); box-shadow: inset 0 2px 0 var(--tab-accent); }
+.cheat-tab.active span { color: var(--tab-accent); }
+.cheat-overview { align-items: center; background: linear-gradient(105deg, color-mix(in srgb, var(--accent) 12%, transparent), rgba(17,26,42,.83)); border: 1px solid color-mix(in srgb, var(--accent) 33%, var(--line)); border-radius: var(--radius); display: flex; gap: 16px; margin-top: 20px; padding: 22px 25px; }
+.cheat-overview-icon { align-items: center; background: color-mix(in srgb, var(--accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 11px; color: var(--accent); display: flex; flex: 0 0 48px; font-family: 'DM Mono', monospace; font-size: .76rem; height: 48px; justify-content: center; }
+.cheat-overview .eyebrow { color: var(--accent); font-size: .6rem; }
+.cheat-overview h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.03rem; letter-spacing: -.03em; line-height: 1.35; margin: 5px 0 0; }
+.cheat-sections { display: grid; gap: 18px; margin-top: 18px; }
+.cheat-section { background: rgba(17,26,42,.72); border: 1px solid var(--line); border-radius: var(--radius); padding: 25px; }
+.cheat-section-heading { align-items: center; display: flex; gap: 12px; margin-bottom: 18px; }
+.section-number { color: var(--accent); font-family: 'DM Mono', monospace; font-size: .68rem; }
+.cheat-section-heading h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; letter-spacing: -.035em; margin: 0; }
+.cheat-items { display: grid; gap: 10px 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cheat-item { background: rgba(255,255,255,.025); border: 1px solid rgba(148,163,184,.1); border-radius: 9px; padding: 14px 15px; }
+.cheat-item h3 { color: var(--ink); font-size: .78rem; margin: 0 0 6px; }
+.cheat-item p { color: var(--muted); font-size: .75rem; line-height: 1.55; margin: 0; }
+.snippet-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.snippet-card { background: #0b1320; border: 1px solid rgba(148,163,184,.15); border-radius: 10px; min-width: 0; overflow: hidden; }
+.snippet-head { align-items: center; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 11px 13px; }
+.snippet-head > div { align-items: center; display: flex; gap: 9px; min-width: 0; }
+.snippet-head strong { color: var(--ink); font-size: .7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.snippet-language { background: rgba(86,168,255,.12); border-radius: 4px; color: var(--blue-bright); font-family: 'DM Mono', monospace; font-size: .59rem; padding: 3px 5px; }
+.copy-button { background: transparent; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); cursor: pointer; font-family: 'DM Mono', monospace; font-size: .58rem; padding: 5px 7px; }
+.copy-button:hover { border-color: var(--blue); color: var(--blue-bright); }
+.snippet-card pre { margin: 0; max-height: 330px; overflow: auto; padding: 16px; }
+.snippet-card code { color: #b8c9df; font-family: 'DM Mono', monospace; font-size: .68rem; line-height: 1.65; white-space: pre; }
 
 .quiz-page { padding-top: 34px; }
 .quiz-head { align-items: start; display: flex; justify-content: space-between; margin-bottom: 27px; }
@@ -182,6 +227,7 @@ button { font: inherit; }
 @media (max-width: 860px) {
   .subject-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .subject-card { min-height: 240px; }
+  .cheat-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .quiz-layout { grid-template-columns: 1fr; }
   .navigator { order: -1; position: static; }
   .question-grid { grid-template-columns: repeat(10, 1fr); max-height: 132px; }
@@ -191,6 +237,15 @@ button { font: inherit; }
   .topbar-meta { display: none; }
   .page-content { padding: 48px 20px 60px; }
   .subject-grid { grid-template-columns: 1fr; }
+  .cheat-callout { align-items: start; flex-wrap: wrap; padding: 20px; }
+  .cheat-callout-copy { min-width: calc(100% - 66px); }
+  .cheat-callout .button { margin-left: 66px; }
+  .cheat-head { align-items: start; flex-direction: column; gap: 18px; }
+  .cheat-meta { text-align: left; }
+  .cheat-tabs { grid-template-columns: 1fr 1fr; }
+  .cheat-overview { align-items: start; padding: 19px; }
+  .cheat-section { padding: 20px 16px; }
+  .cheat-items { grid-template-columns: 1fr; }
   .footer { align-items: start; flex-direction: column; gap: 6px; padding: 17px 20px; }
   .section-heading { align-items: start; flex-direction: column; gap: 6px; margin-top: 51px; }
   .quiz-head { margin-bottom: 20px; }

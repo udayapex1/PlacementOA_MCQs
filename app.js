@@ -1,3 +1,5 @@
+import { CHEATSHEETS } from './cheatsheets.js';
+
 const SUBJECTS = [
   {
     id: 'oops',
@@ -49,6 +51,7 @@ const state = {
   answers: {},
   marked: new Set(),
   finished: false,
+  snippets: new Map(),
 };
 
 const app = document.querySelector('#app');
@@ -62,6 +65,10 @@ function escapeHTML(value) {
 
 function subjectById(id) {
   return SUBJECTS.find((subject) => subject.id === id);
+}
+
+function cheatsheetById(id) {
+  return CHEATSHEETS.find((sheet) => sheet.id === id);
 }
 
 function renderLoading() {
@@ -113,8 +120,63 @@ function renderHome() {
         `).join('')}
       </div>
     </section>
+    <section class="cheat-callout" aria-labelledby="cheat-heading">
+      <div class="cheat-callout-mark">CS</div>
+      <div class="cheat-callout-copy"><div class="eyebrow">Revision module</div><h2 id="cheat-heading">Cheat sheets for the final review</h2><p>Quick-reference concepts, interview comparisons, and copyable code snippets for OOPs, OS, DBMS, and SQL.</p></div>
+      <a class="button secondary" href="#cheatsheets/oops">Open cheat sheets <span>→</span></a>
+    </section>
     <div class="home-note"><span class="status-dot"></span><span><strong>1,000 MCQs loaded</strong> across 4 core placement subjects</span></div>
   `;
+}
+
+function renderCheatsheets(id = 'oops') {
+  const active = cheatsheetById(id) || CHEATSHEETS[0];
+  state.snippets = new Map();
+  app.className = 'page-content cheatsheet-page';
+  app.style.setProperty('--accent', active.accent);
+
+  app.innerHTML = `
+    <div class="cheat-head">
+      <div><a class="back-link" href="#home">← PlacementPrep home</a><div class="cheat-title"><span class="pill" style="color:${active.accent}">QUICK REF</span><h1>Core subject cheat sheets</h1></div><p class="cheat-intro">A compact last-mile revision guide. Scan the concepts, then copy a pattern into your own notes or editor.</p></div>
+      <div class="cheat-meta"><strong>04</strong> subjects covered</div>
+    </div>
+    <nav class="cheat-tabs" aria-label="Cheat sheet subjects">
+      ${CHEATSHEETS.map((sheet) => `<a class="cheat-tab ${sheet.id === active.id ? 'active' : ''}" style="--tab-accent:${sheet.accent}" href="#cheatsheets/${sheet.id}"><span>${sheet.name}</span><small>${sheet.sections.length} sections</small></a>`).join('')}
+    </nav>
+    <section class="cheat-overview" style="--accent:${active.accent}"><div class="cheat-overview-icon">${active.name.slice(0, 2).toUpperCase()}</div><div><div class="eyebrow">${escapeHTML(active.name)} / study mode</div><h2>${escapeHTML(active.subtitle)}</h2></div></section>
+    <div class="cheat-sections">
+      ${active.sections.map((section, sectionIndex) => `
+        <section class="cheat-section">
+          <div class="cheat-section-heading"><span class="section-number">${String(sectionIndex + 1).padStart(2, '0')}</span><h2>${escapeHTML(section.title)}</h2></div>
+          ${section.items ? `<div class="cheat-items">${section.items.map((item) => `<article class="cheat-item"><h3>${escapeHTML(item.term)}</h3><p>${escapeHTML(item.detail)}</p></article>`).join('')}</div>` : ''}
+          ${section.snippets ? `<div class="snippet-grid">${section.snippets.map((item, snippetIndex) => {
+            const key = `${active.id}-${sectionIndex}-${snippetIndex}`;
+            state.snippets.set(key, item.code);
+            return `<article class="snippet-card"><div class="snippet-head"><div><span class="snippet-language">${escapeHTML(item.language)}</span><strong>${escapeHTML(item.title)}</strong></div><button class="copy-button" data-copy="${key}">Copy</button></div><pre><code>${escapeHTML(item.code)}</code></pre></article>`;
+          }).join('')}</div>` : ''}
+        </section>
+      `).join('')}
+    </div>
+  `;
+
+  document.querySelectorAll('[data-copy]').forEach((button) => button.addEventListener('click', async () => {
+    const code = state.snippets.get(button.dataset.copy);
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = code;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      textarea.remove();
+    }
+    const original = button.textContent;
+    button.textContent = 'Copied';
+    window.setTimeout(() => { button.textContent = original; }, 1300);
+  }));
 }
 
 function startTest(id) {
@@ -251,6 +313,8 @@ function renderResults() {
 }
 
 function handleRoute() {
+  const cheatMatch = window.location.hash.match(/^#cheatsheets(?:\/(oops|os|dbms|sql))?$/);
+  if (cheatMatch) return renderCheatsheets(cheatMatch[1] || 'oops');
   const match = window.location.hash.match(/^#test\/(oops|cn|os|sql)$/);
   if (match && state.banks[match[1]]) startTest(match[1]);
   else renderHome();
