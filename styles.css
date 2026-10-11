@@ -70,7 +70,7 @@ button { font: inherit; }
 .section-heading h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; letter-spacing: -.03em; margin: 0; }
 .section-heading p { color: var(--muted); font-size: .77rem; margin: 0; }
 
-.subject-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
+.subject-grid { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .subject-card {
   background: linear-gradient(155deg, rgba(24, 39, 61, .95), rgba(14, 23, 38, .96));
   border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); display: flex; flex-direction: column;
@@ -180,7 +180,7 @@ button { font: inherit; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 860px) {
-  .subject-grid { grid-template-columns: 1fr; }
+  .subject-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .subject-card { min-height: 240px; }
   .quiz-layout { grid-template-columns: 1fr; }
   .navigator { order: -1; position: static; }
@@ -190,6 +190,7 @@ button { font: inherit; }
   .topbar { padding: 0 20px; }
   .topbar-meta { display: none; }
   .page-content { padding: 48px 20px 60px; }
+  .subject-grid { grid-template-columns: 1fr; }
   .footer { align-items: start; flex-direction: column; gap: 6px; padding: 17px 20px; }
   .section-heading { align-items: start; flex-direction: column; gap: 6px; margin-top: 51px; }
   .quiz-head { margin-bottom: 20px; }

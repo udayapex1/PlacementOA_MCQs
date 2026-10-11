@@ -29,6 +29,16 @@ const SUBJECTS = [
     description: 'Processes, memory, scheduling, file systems, concurrency, and Linux fundamentals.',
     topics: 'Processes  ·  Memory  ·  Linux',
   },
+  {
+    id: 'sql',
+    name: 'SQL',
+    shortName: 'SQL',
+    icon: '04',
+    accent: '#c88cff',
+    file: './SQL/questionBank.json',
+    description: 'Queries, joins, normalization, transactions, indexing, security, and database design.',
+    topics: 'Queries  ·  Joins  ·  Databases',
+  },
 ];
 
 const state = {
@@ -103,7 +113,7 @@ function renderHome() {
         `).join('')}
       </div>
     </section>
-    <div class="home-note"><span class="status-dot"></span><span><strong>750 MCQs loaded</strong> across 3 core placement subjects</span></div>
+    <div class="home-note"><span class="status-dot"></span><span><strong>1,000 MCQs loaded</strong> across 4 core placement subjects</span></div>
   `;
 }
 
@@ -241,7 +251,7 @@ function renderResults() {
 }
 
 function handleRoute() {
-  const match = window.location.hash.match(/^#test\/(oops|cn|os)$/);
+  const match = window.location.hash.match(/^#test\/(oops|cn|os|sql)$/);
   if (match && state.banks[match[1]]) startTest(match[1]);
   else renderHome();
 }
