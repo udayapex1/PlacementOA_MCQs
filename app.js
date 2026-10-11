@@ -102,8 +102,9 @@ function renderHome() {
       <div class="eyebrow">Your next interview starts here</div>
       <h1>Practice with intent.<br /><em>Perform with confidence.</em></h1>
       <p>Choose a subject, work through every question in the bank, and see exactly where you stand. No distractions — just a clean test loop built for placement preparation.</p>
+      <div class="hero-actions"><a class="button primary" href="#test/oops">Start practicing <span>→</span></a><a class="inline-link" href="#cheatsheets/oops">Browse cheat sheets <span>↗</span></a></div>
     </section>
-    <section aria-labelledby="subject-heading">
+    <section class="subject-section" aria-labelledby="subject-heading">
       <div class="section-heading">
         <h2 id="subject-heading">Choose your subject</h2>
         <p>Each test includes the complete 250-question bank</p>
@@ -152,7 +153,7 @@ function renderCheatsheets(id = 'oops') {
           ${section.snippets ? `<div class="snippet-grid">${section.snippets.map((item, snippetIndex) => {
             const key = `${active.id}-${sectionIndex}-${snippetIndex}`;
             state.snippets.set(key, item.code);
-            return `<article class="snippet-card"><div class="snippet-head"><div><span class="snippet-language">${escapeHTML(item.language)}</span><strong>${escapeHTML(item.title)}</strong></div><button class="copy-button" data-copy="${key}">Copy</button></div><pre><code>${escapeHTML(item.code)}</code></pre></article>`;
+            return `<article class="snippet-card code-window"><div class="code-window-chrome"><div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div><button class="copy-button" data-copy="${key}">Copy</button></div><div class="snippet-head"><span class="snippet-language">${escapeHTML(item.language)}</span><strong>${escapeHTML(item.title)}</strong></div><pre><code>${escapeHTML(item.code)}</code></pre></article>`;
           }).join('')}</div>` : ''}
         </section>
       `).join('')}
@@ -213,7 +214,7 @@ function renderQuiz() {
       </div>
       <div class="quiz-stats"><strong>${answeredCount}</strong> answered of ${state.questions.length}</div>
     </div>
-    <div class="progress-track" aria-label="Test progress"><div class="progress-fill" style="width:${progress}%; background:linear-gradient(90deg, ${subject.accent}, #8bc7ff)"></div></div>
+    <div class="progress-track" aria-label="Test progress"><div class="progress-fill" style="width:${progress}%"></div></div>
     <div class="quiz-layout">
       <section class="question-card" aria-labelledby="question-text">
         <div class="question-kicker"><span>QUESTION ${state.current + 1} / ${state.questions.length}</span><span class="difficulty ${difficultyClass(question.difficulty)}">${escapeHTML(question.difficulty || 'Practice')}</span><span>·</span><span>${escapeHTML(question.topic)}</span></div>
@@ -320,5 +321,15 @@ function handleRoute() {
   else renderHome();
 }
 
+const menuButton = document.querySelector('#menu-button');
+const siteNav = document.querySelector('.site-nav');
+menuButton?.addEventListener('click', () => {
+  const open = siteNav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+});
+siteNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+  siteNav.classList.remove('open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+}));
 window.addEventListener('hashchange', handleRoute);
 loadBanks();

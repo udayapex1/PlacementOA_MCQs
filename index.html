@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0e1726" />
+    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="PlacementPrep is a focused MCQ practice portal for Operating Systems, Computer Networks, and OOPs."
+      content="PlacementPrep is a focused MCQ practice portal for OOPs, Operating Systems, DBMS, SQL, and Computer Networks."
     />
     <title>PlacementPrep — Technical MCQ Practice</title>
     <link rel="stylesheet" href="styles.css" />
@@ -21,17 +21,32 @@
             <small>technical interview practice</small>
           </span>
         </a>
-        <div class="topbar-meta">
-          <span class="status-dot"></span>
-          <span>1,000 questions ready</span>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#test/oops">Practice</a>
+          <a href="#cheatsheets/oops">Cheat sheets</a>
+          <a href="#test/sql">SQL bank</a>
+        </nav>
+        <div class="topbar-actions">
+          <div class="topbar-meta">
+            <span class="status-dot"></span>
+            <span>1,000 questions ready</span>
+          </div>
+          <a class="nav-cta" href="#cheatsheets/oops">Quick review</a>
+          <button class="menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
         </div>
       </header>
 
       <main id="app" class="page-content" aria-live="polite"></main>
 
       <footer class="footer">
-        <span>PlacementPrep</span>
-        <span>Built for focused practice · Pick a subject and begin</span>
+        <div class="footer-grid">
+          <div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span><strong>Placement<span>Prep</span></strong><small>technical interview practice</small></span></a><p>Focused preparation for the core subjects that show up in technical placement rounds.</p></div>
+          <div><h2>Practice</h2><a href="#test/oops">OOPs MCQs</a><a href="#test/os">Operating Systems</a><a href="#test/sql">SQL MCQs</a></div>
+          <div><h2>Revise</h2><a href="#cheatsheets/oops">OOPs cheat sheet</a><a href="#cheatsheets/os">OS cheat sheet</a><a href="#cheatsheets/dbms">DBMS cheat sheet</a><a href="#cheatsheets/sql">SQL cheat sheet</a></div>
+          <div><h2>System</h2><span><i class="status-dot"></i> All systems operational</span><span>1,000 questions loaded</span><span>Built for focused practice</span></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 PlacementPrep</span><span>Read. Practice. Repeat.</span></div>
       </footer>
     </div>
     <script type="module" src="app.js"></script>
