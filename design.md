@@ -272,7 +272,6 @@ The system has **no traditional drop shadow language**. Every surface either get
 - Don't introduce a secondary brand accent. White is the brand on black — accents are atmospheric only.
 - Don't bring photography front-and-centre. The brand reads as type-and-code, not photography-led.
 
-## Responsive Behavior
 
 ### Breakpoints
 
